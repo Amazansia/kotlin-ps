@@ -16,5 +16,4 @@ fun main() = with(System.`in`.bufferedReader()) {
 			println("0")
 		}
 	}
-
 }

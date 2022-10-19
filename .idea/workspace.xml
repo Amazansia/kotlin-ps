@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin-ps.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj11050.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj11654.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj12865.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1652.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1747.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1920.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj25034.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/hard/boj1655.kt" afterDir="false" />
+    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="20221019">
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2981.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/boj1920.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1920.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +14,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
         <option value="Kotlin Script" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -59,7 +46,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
-  <component name="RunManager" selected="Kotlin.Boj11401Kt">
+  <component name="RunManager" selected="Kotlin.Boj2981Kt">
     <configuration name="Boj11401Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Boj11401Kt" />
       <module name="kotlin-ps" />
@@ -81,13 +68,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj1747Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj1747Kt" />
-      <module name="kotlin-ps" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Boj1920Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Boj1920Kt" />
       <module name="kotlin-ps" />
@@ -95,13 +75,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Boj2981Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj2981Kt" />
+      <module name="kotlin-ps" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Boj2981Kt" />
         <item itemvalue="Kotlin.Boj11401Kt" />
         <item itemvalue="Kotlin.Boj1920Kt" />
         <item itemvalue="Kotlin.Boj1655Kt" />
         <item itemvalue="Kotlin.Boj1652Kt" />
-        <item itemvalue="Kotlin.Boj1747Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -121,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664455608637</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="20221019">
+      <created>1666158843794</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666158843794</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +131,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="20221019" />
+    <option name="LAST_COMMIT_MESSAGE" value="20221019" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
