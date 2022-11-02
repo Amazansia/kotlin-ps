@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="20221019">
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2981.kt" afterDir="false" />
+    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj2981">
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2621.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/hard/boj3197.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/boj1920.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1920.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +46,9 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
-  <component name="RunManager" selected="Kotlin.Boj2981Kt">
+  <component name="RunManager" selected="Kotlin.Boj2621Kt">
     <configuration name="Boj11401Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Boj11401Kt" />
-      <module name="kotlin-ps" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Boj1652Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj1652Kt" />
-      <module name="kotlin-ps" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Boj1655Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj1655Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,6 +61,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Boj2621Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj2621Kt" />
+      <module name="kotlin-ps" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Boj2981Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Boj2981Kt" />
       <module name="kotlin-ps" />
@@ -82,13 +75,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Boj3197Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj3197Kt" />
+      <module name="kotlin-ps" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Boj2621Kt" />
+        <item itemvalue="Kotlin.Boj3197Kt" />
         <item itemvalue="Kotlin.Boj2981Kt" />
         <item itemvalue="Kotlin.Boj11401Kt" />
         <item itemvalue="Kotlin.Boj1920Kt" />
-        <item itemvalue="Kotlin.Boj1655Kt" />
-        <item itemvalue="Kotlin.Boj1652Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -115,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666158843794</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ktps - boj2981">
+      <created>1666165054024</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666165054024</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,7 +139,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="20221019" />
-    <option name="LAST_COMMIT_MESSAGE" value="20221019" />
+    <MESSAGE value="ktps - boj2981" />
+    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj2981" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
