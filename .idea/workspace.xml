@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj2981">
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2621.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/hard/boj3197.kt" afterDir="false" />
+    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj2621&#10;3197은 수정 중">
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj15649.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj15650.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/hard/boj3197_deprecated.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/test.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/hard/boj3197.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/hard/boj3197.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,9 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin Script" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -37,25 +40,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
-  <component name="RunManager" selected="Kotlin.Boj2621Kt">
-    <configuration name="Boj11401Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj11401Kt" />
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Kotlin.Boj15650Kt">
+    <configuration name="Boj15649Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj15649Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj1920Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj1920Kt" />
+    <configuration name="Boj15650Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj15650Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -68,15 +79,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj2981Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj2981Kt" />
+    <configuration name="Boj3197Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hard.Boj3197Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj3197Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj3197Kt" />
+    <configuration name="TestKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hard.TestKt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -84,11 +95,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.Boj2621Kt" />
+        <item itemvalue="Kotlin.Boj15650Kt" />
+        <item itemvalue="Kotlin.Boj15649Kt" />
         <item itemvalue="Kotlin.Boj3197Kt" />
-        <item itemvalue="Kotlin.Boj2981Kt" />
-        <item itemvalue="Kotlin.Boj11401Kt" />
-        <item itemvalue="Kotlin.Boj1920Kt" />
+        <item itemvalue="Kotlin.TestKt" />
+        <item itemvalue="Kotlin.Boj2621Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -122,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666165054024</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ktps - boj2621&#10;3197은 수정 중">
+      <created>1667389803664</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667389803665</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,7 +158,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="20221019" />
     <MESSAGE value="ktps - boj2981" />
-    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj2981" />
+    <MESSAGE value="ktps - boj2621&#10;3197은 수정 중" />
+    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj2621&#10;3197은 수정 중" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
