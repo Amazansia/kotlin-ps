@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj3197, boj15649, boj15650">
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj10807.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj11051.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj11279.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj18258.kt" afterDir="false" />
+    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj10807.kt">
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj4949.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +53,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Boj10807Kt">
+  <component name="RunManager" selected="Kotlin.Boj4949Kt">
     <configuration name="Boj10807Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Boj10807Kt" />
       <module name="kotlin-ps" />
@@ -72,15 +68,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj15650Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj15650Kt" />
+    <configuration name="Boj18258Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj18258Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj18258Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj18258Kt" />
+    <configuration name="Boj4949Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj4949Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -95,11 +91,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Boj4949Kt" />
         <item itemvalue="Kotlin.Boj10807Kt" />
         <item itemvalue="Kotlin.Boj11279Kt" />
         <item itemvalue="Kotlin.Boj18258Kt" />
         <item itemvalue="Kotlin.TestKt (1)" />
-        <item itemvalue="Kotlin.Boj15650Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667479716768</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ktps - boj10807.kt">
+      <created>1668773672105</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668773672105</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,7 +170,8 @@
     <MESSAGE value="ktps - boj2981" />
     <MESSAGE value="ktps - boj2621&#10;3197은 수정 중" />
     <MESSAGE value="ktps - boj3197, boj15649, boj15650" />
-    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj3197, boj15649, boj15650" />
+    <MESSAGE value="ktps - boj10807.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj10807.kt" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
