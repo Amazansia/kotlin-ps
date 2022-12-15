@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj4949.kt, boj16398.kt">
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj16398_kruskal.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj10808.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj11328.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1325.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj13300.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1475.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1620.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1919.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1991.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2577.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj3273.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/boj16398.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/boj16398_prim.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/boj2621.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2621.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/test.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,37 +64,37 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Boj16398_kruskalKt">
-    <configuration name="Boj10807Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj10807Kt" />
+  <component name="RunManager" selected="Kotlin.Boj1325Kt">
+    <configuration name="Boj11328Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj11328Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj10867Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj10867Kt" />
+    <configuration name="Boj1325Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj1325Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj16398_kruskalKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj16398_kruskalKt" />
+    <configuration name="Boj1620Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj1620Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj16398_primKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj16398_primKt" />
+    <configuration name="Boj1919Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj1919Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Boj4949Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj4949Kt" />
+    <configuration name="Boj1991Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj1991Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -92,11 +102,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.Boj16398_kruskalKt" />
-        <item itemvalue="Kotlin.Boj16398_primKt" />
-        <item itemvalue="Kotlin.Boj10867Kt" />
-        <item itemvalue="Kotlin.Boj4949Kt" />
-        <item itemvalue="Kotlin.Boj10807Kt" />
+        <item itemvalue="Kotlin.Boj1325Kt" />
+        <item itemvalue="Kotlin.Boj1991Kt" />
+        <item itemvalue="Kotlin.Boj1620Kt" />
+        <item itemvalue="Kotlin.Boj1919Kt" />
+        <item itemvalue="Kotlin.Boj11328Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670923117545</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ktps - boj4949.kt, boj16398.kt">
+      <created>1671003343023</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671003343023</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

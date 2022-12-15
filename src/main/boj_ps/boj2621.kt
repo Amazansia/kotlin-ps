@@ -99,7 +99,7 @@ fun minsamenum(cards: IntArray): Int {
 	return 1
 }
 
-fun maxsamenum(cards: IntArray): Int {
+private fun maxsamenum(cards: IntArray): Int {
 	var res = 0
 	for (i in cards.indices) {
 		res = max(res, cards.count { it == cards[i] })
