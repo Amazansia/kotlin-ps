@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj4949.kt, boj16398.kt">
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj10808.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj11328.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1325.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj13300.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1475.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1620.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1919.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1991.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2577.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj3273.kt" afterDir="false" />
+    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - can do this all day">
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj12873.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/boj2621.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2621.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/test.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +53,9 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Boj1325Kt">
-    <configuration name="Boj11328Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj11328Kt" />
+  <component name="RunManager" selected="Kotlin.Boj12873Kt">
+    <configuration name="Boj12873Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj12873Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,11 +91,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Boj12873Kt" />
         <item itemvalue="Kotlin.Boj1325Kt" />
         <item itemvalue="Kotlin.Boj1991Kt" />
         <item itemvalue="Kotlin.Boj1620Kt" />
         <item itemvalue="Kotlin.Boj1919Kt" />
-        <item itemvalue="Kotlin.Boj11328Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671003343023</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ktps - can do this all day">
+      <created>1671109702109</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671109702109</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,7 +201,8 @@
     <MESSAGE value="ktps - boj10807.kt" />
     <MESSAGE value="ktps - boj4949.kt" />
     <MESSAGE value="ktps - boj4949.kt, boj16398.kt" />
-    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj4949.kt, boj16398.kt" />
+    <MESSAGE value="ktps - can do this all day" />
+    <option name="LAST_COMMIT_MESSAGE" value="ktps - can do this all day" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
