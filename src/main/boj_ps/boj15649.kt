@@ -19,7 +19,6 @@ fun main() = with(System.`in`.bufferedReader()) {
 	}
 
 	fun backtracking(str: String) {
-
 		if (str.length >= M) {
 			printStr(str)
 			return
@@ -29,7 +28,6 @@ fun main() = with(System.`in`.bufferedReader()) {
 			visited[i] = true
 			backtracking("$str$i")
 			visited[i] = false
-
 		}
 	}
 

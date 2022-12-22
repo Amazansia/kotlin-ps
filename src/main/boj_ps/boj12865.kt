@@ -1,5 +1,4 @@
 import java.lang.Integer.max
-import java.util.LinkedList
 
 fun main() = with(System.`in`.bufferedReader()) {
 	var temp = readLine().split(" ")

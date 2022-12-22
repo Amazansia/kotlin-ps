@@ -18,7 +18,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 
 	for (j in 0 until 26) {
 		if (chararr_second[j] != chararr_first[j]) {
-			sum += abs(chararr_second[j] - chararr_first[j])
+			sum += kotlin.math.abs(chararr_second[j] - chararr_first[j])
 		}
 	}
 	println(sum)

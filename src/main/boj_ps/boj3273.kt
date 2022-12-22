@@ -1,5 +1,3 @@
-import java.util.logging.LogManager
-
 fun main() = with(System.`in`.bufferedReader()) {
 	val N = readLine().toInt()
 	var intarr: IntArray = readLine().split(" ").map { it.toInt() }.toIntArray()

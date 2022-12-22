@@ -1,6 +1,3 @@
-import java.util.Collections.max
-import kotlin.math.*
-
 fun main() = with(System.`in`.bufferedReader()) {
 	var N = readLine().toInt()
 

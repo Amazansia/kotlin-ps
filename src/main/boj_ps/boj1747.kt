@@ -20,7 +20,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 
 fun isprime(num: Int): Boolean {
 	val num_string = num.toString()
-	for (i in 2..sqrt(num.toDouble()).toInt()) {
+	for (i in 2..kotlin.math.sqrt(num.toDouble()).toInt()) {
 		if (num % i == 0) {
 			return false
 		}
