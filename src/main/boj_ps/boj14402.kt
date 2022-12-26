@@ -5,7 +5,6 @@ fun main() = with(System.`in`.bufferedReader()) {
 	var hMap = HashMap<String, Int?>()
 	// 정상 출입수
 	var sum = 0
-	// getordefault
 	// 정보 저장
 	for (i in 0 until q) {
 		var str = readLine().split(" ")
