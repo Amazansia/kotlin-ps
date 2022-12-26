@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - commit before study">
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj14888.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj17608.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2075.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2776.kt" afterDir="false" />
+    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - prepare for 1226 study">
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj14402.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/boj2932.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2932.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +55,9 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Boj14888Kt">
-    <configuration name="Boj12873Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj12873Kt" />
+  <component name="RunManager" selected="Kotlin.Boj14402Kt">
+    <configuration name="Boj14402Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj14402Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -95,11 +93,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Boj14402Kt" />
+        <item itemvalue="Kotlin.Boj2075Kt" />
         <item itemvalue="Kotlin.Boj14888Kt" />
         <item itemvalue="Kotlin.Boj17608Kt" />
-        <item itemvalue="Kotlin.Boj2075Kt" />
         <item itemvalue="Kotlin.Boj2776Kt" />
-        <item itemvalue="Kotlin.Boj12873Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671681783952</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="ktps - prepare for 1226 study">
+      <created>1671700063855</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1671700063855</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,7 +227,8 @@
     <MESSAGE value="ktps - can do this all day" />
     <MESSAGE value="ktps - 1218 study done" />
     <MESSAGE value="ktps - commit before study" />
-    <option name="LAST_COMMIT_MESSAGE" value="ktps - commit before study" />
+    <MESSAGE value="ktps - prepare for 1226 study" />
+    <option name="LAST_COMMIT_MESSAGE" value="ktps - prepare for 1226 study" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

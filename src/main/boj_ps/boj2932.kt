@@ -1,5 +1,6 @@
 fun main() = with(System.`in`.bufferedReader()) {
 	val (N, M) = readLine().split(" ").map { it.toInt() }
+	// 목표 위치 저장
 	var RClist = Array(M) { shortArrayOf(0, 0) }
 
 	var matrix_r = IntArray(1000)
@@ -9,7 +10,9 @@ fun main() = with(System.`in`.bufferedReader()) {
 		val (X, R, C) = readLine().split(" ").map { it.toInt() }
 		RClist[i] = shortArrayOf((R - 1).toShort(), (C - 1).toShort())
 
+		// 입력받은 값의 r위치 저장
 		matrix_r[i] = (X - 1) / N
+		// 입력받은 값의 c위치 저장
 		matrix_c[i] = (X - 1) % N
 	}
 
