@@ -14,7 +14,6 @@ fun main() = with(System.`in`.bufferedReader()) {
 		} else if (hMap.containsKey(str[0]) && hMap[str[0]] != 0) {
 			hMap[str[0]] = hMap[str[0]]?.minus(1)
 			sum += 2
-//			println("$i, ${hMap[str[0]]}")
 		}
 	}
 
