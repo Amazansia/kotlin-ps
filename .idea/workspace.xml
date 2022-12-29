@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj14402 done">
-      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj2720.kt" afterDir="false" />
+    <list default="true" id="a15cb56e-56bd-451f-9d63-7bd03ba9fd52" name="Changes" comment="ktps - boj2720 done">
+      <change afterPath="$PROJECT_DIR$/src/main/boj_ps/boj1085.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/boj_ps/boj14402.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/boj_ps/boj14402.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +54,14 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Boj2720Kt">
+  <component name="RunManager" selected="Kotlin.Boj1085Kt">
+    <configuration name="Boj1085Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Boj1085Kt" />
+      <module name="kotlin-ps" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Boj14402Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Boj14402Kt" />
       <module name="kotlin-ps" />
@@ -65,13 +71,6 @@
     </configuration>
     <configuration name="Boj14888Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Boj14888Kt" />
-      <module name="kotlin-ps" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Boj17608Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Boj17608Kt" />
       <module name="kotlin-ps" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,11 +92,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Boj1085Kt" />
         <item itemvalue="Kotlin.Boj2720Kt" />
         <item itemvalue="Kotlin.Boj14402Kt" />
         <item itemvalue="Kotlin.Boj2075Kt" />
         <item itemvalue="Kotlin.Boj14888Kt" />
-        <item itemvalue="Kotlin.Boj17608Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672066877389</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ktps - boj2720 done">
+      <created>1672227929052</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1672227929052</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +257,8 @@
     <MESSAGE value="ktps - prepare for 1226 study" />
     <MESSAGE value="ktps - 1226 STUDY DONE" />
     <MESSAGE value="ktps - boj14402 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj14402 done" />
+    <MESSAGE value="ktps - boj2720 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="ktps - boj2720 done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
