@@ -3,6 +3,10 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
+### workspace.xml ###
+!**/workspace.xml
+
+
 ### Eclipse ###
 .apt_generated
 .classpath
