@@ -4,14 +4,16 @@ fun main() = with(System.`in`.bufferedReader()) {
     arr[0] = false
     arr[1] = false
     var cnt = 0
-    for (i in 2 until N) {
-        for (j in 1 until N) {
-            if (i * j > arr.size) break
-            arr[i * j] = false
-            cnt++
-            if (cnt == K) {
-                print(i * j)
-                return
+
+    for (i in 2..N) {
+        for (j in 1..N) {
+            if (i * j <= N && arr[i * j]) {
+                arr[i * j] = false
+                cnt++
+                if (cnt == K) {
+                    print(i * j)
+                    return
+                }
             }
         }
     }
