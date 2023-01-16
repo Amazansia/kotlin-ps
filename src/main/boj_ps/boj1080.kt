@@ -57,14 +57,20 @@ fun main() = with(System.`in`.bufferedReader()) {
         }
     }
 
+    if (checkAB()) {
+        print(0)
+        return
+    }
     var sum = 0
     for (i in 0 until N) {
         for (j in 0 until M) {
-            if (!(i + 3 > N || j + 3 > M) && check3(i, j)) {
+
+            if (!(i + 3 > N || j + 3 > M) && arr_A[i][j] != arr_B[i][j]) {
                 reverseA(i, j)
                 sum++
+//                printA()
             }
-            printA()
+
             if (checkAB()) {
                 print(if (sum != 0) sum else -1)
                 return
