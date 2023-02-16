@@ -4,7 +4,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 	var (N, K) = readLine().split(" ").map { it.toInt() }
 	var preyArr = readLine().split(" ").map { it.toInt() }.toIntArray()
 	/*
-	N이 10만, NlogN 안에 뚫어야 함
+	N이 10만, NlogN 안에 뚫어야 함...
 	sum == K -> 맨 처음 먹이를 뱉음
 	sum < K -> 계속 먹음(값 갱신)
 	sum > K -> stop, 최댓값 저장(sum - K) OR 맨 처음 먹이를 뱉고 다음 먹이를 먹을 수 있는지 확인
