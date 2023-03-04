@@ -38,36 +38,36 @@ second 내림차순, third 오름차순
 100 99
 100 100
 1 100000
+1. p > w일 때 queue에 넣기
+2. p <= w 일 때 가장 큰 것만 매일매일 뽑아먹기
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
-    var (N, T) = readLine().trim().split(" ").map { it.toInt() }
-    var W = IntArray(N + 1)
-    var P = IntArray(N + 1)
+	var (N, T) = readLine().trim().split(" ").map { it.toInt() }
 
-    // idx, w, p: w 내림차순, p 오름차순
-    var pq = PriorityQueue(Comparator<Triple<Int, Int, Int>> { a, b ->
-        when {
-            a.second != b.second -> a.second - b.second
-            else -> b.third - a.third
-        }
-    })
+	// idx, w, p: 1. w 내림차순
+	var pq = PriorityQueue(Comparator<Pair<Int, Int>> { a, b ->
+		when{
+			a.second != b.second -> a.second - b.second
+			else -> a.first - b.first
+		}
+	})
 
-    repeat(N) {
-        var str = readLine().split(" ").map { it.toInt() }.toIntArray()
-        W[it + 1] = str[0]
-        P[it + 1] = str[1]
-        pq.add(Triple(it + 1, str[0], str[1]))
-    }
+	repeat(N) {
+		var str = readLine().split(" ").map { it.toInt() }.toIntArray()
+		pq.add(Pair(str[0], str[1]))
+	}
 
-    // i일차 당근의 맛: w + (i-1) * p
-    var answer: Long = 0
-    for (i in 0 until T) {
-        var pqNow = pq.poll()
-        if (pqNow.third > pqNow.second) {
+	// i일차 당근의 맛: w + (i-1) * p
+	var answer: Long = 0
 
-        }
-    }
+	// 기다린 당근 먹기
+	var remainDays = T - N
+	while(pq.isNotEmpty()){
+		var i = pq.poll()
+		answer += i.first + remainDays * i.second.toLong()
+		remainDays++
+	}
+
+	print(answer)
 }
-
-
