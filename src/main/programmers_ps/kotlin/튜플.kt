@@ -15,22 +15,25 @@ s의 길이는 1백만 이하...
 튜플의 원소는 10만까지
 사이즈가 작은 순 정렬
 * */
-class Solution {
-    fun solution(s: String): IntArray {
+fun main() = with(System.`in`.bufferedReader()) {
+    class Solution {
+        fun solution(s: String): IntArray {
 
-        var str = s
-        var arr = str.substring(2, s.length - 2).split("},{")
-        //  원소 length순 정렬: 오름차순
-        arr.sortedWith { o1: String, o2: String -> o1.length - o2.length }
-        // arr 순회 - i: "1, 2, 3"
-        var intset = mutableSetOf<Int>()
-        for (i in arr) {
-            var arrInt = i.split(",").map { it.toInt() }.toIntArray()
-            for (j in arrInt) {
-                intset.add(j)
+            var str = s
+            var arr = str.substring(2, s.length - 2).split("},{")
+            //  원소 length순 정렬: 오름차순
+            arr.sortedWith { o1: String, o2: String -> o1.length - o2.length }
+            // arr 순회 - i: "1, 2, 3"
+            var intset = mutableSetOf<Int>()
+            for (i in arr) {
+                var arrInt = i.split(",").map { it.toInt() }.toIntArray()
+                for (j in arrInt) {
+                    intset.add(j)
+                }
             }
-        }
 
-        return intset.toIntArray()
+            return intset.toIntArray()
+        }
     }
 }
+
