@@ -1,5 +1,3 @@
-package kotlin
-
 /*
 튜플
 1. 중복가능
@@ -15,7 +13,7 @@ s의 길이는 1백만 이하...
 튜플의 원소는 10만까지
 사이즈가 작은 순 정렬
 * */
-fun main() = with(System.`in`.bufferedReader()) {
+class 튜플 {
     class Solution {
         fun solution(s: String): IntArray {
 
@@ -36,4 +34,5 @@ fun main() = with(System.`in`.bufferedReader()) {
         }
     }
 }
+
 
