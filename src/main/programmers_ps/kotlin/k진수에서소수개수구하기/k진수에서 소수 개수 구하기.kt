@@ -1,4 +1,4 @@
-package kotlin
+package kotlin.k진수에서소수개수구하기
 
 import kotlin.math.sqrt
 

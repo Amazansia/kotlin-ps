@@ -1,3 +1,5 @@
+package kotlin.보석쇼핑
+
 class Solution {
 
     fun solution(gems: Array<String>): IntArray {
