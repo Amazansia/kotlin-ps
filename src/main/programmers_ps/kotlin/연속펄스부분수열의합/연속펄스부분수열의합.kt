@@ -1,6 +1,6 @@
-import kotlin.math.abs
+package kotlin.연속펄스부분수열의합
 
-//package kotlin.연속펄스부분수열의합
+import kotlin.math.abs
 
 /*
 펄스 수열이란 1과 -1이 번갈아 나오는 수열이다
