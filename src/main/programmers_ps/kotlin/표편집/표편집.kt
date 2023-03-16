@@ -1,6 +1,7 @@
+package kotlin.표편집
+
 import java.util.*
 
-//package kotlin.표편집
 /*
 표의 행을 선택, 삭제, 복구하는 프로그램
 "U X": 현재 선택된 행에서 X칸 위에 있는 행을 선택합니다.
@@ -49,7 +50,7 @@ class Solution {
                 }
             }
         }
-        
+
         var answer = StringBuilder("O".repeat(size))
         while (stack.isNotEmpty()) {
             answer.insert(stack.pop().toInt(), 'X')
