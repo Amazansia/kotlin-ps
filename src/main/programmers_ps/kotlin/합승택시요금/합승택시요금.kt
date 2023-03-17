@@ -1,6 +1,8 @@
+package kotlin.합승택시요금
+
+
 import java.lang.Integer.min
 
-//package kotlin.합승택시요금
 /*
 s에서 출발하여 A와 B를 포함하는 경로의 예상 최저 요금을 구하시오
 모든 간선이 연결되어 있지 않을 수도 있다

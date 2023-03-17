@@ -1,6 +1,5 @@
-package java;
+package java.캐시;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /*
