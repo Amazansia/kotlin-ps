@@ -1,6 +1,7 @@
+package kotlin.이모티콘할인행사
+
 import kotlin.math.max
 
-//package kotlin.이모티콘할인행사
 //
 /*
 1. 이모티콘 플러스 가입자 늘리기
@@ -34,8 +35,7 @@ class Solution {
                     var sum = 0
                     for (i in emoticonPrice.indices) {
                         if (emoticonPrice[i] >= user[0]) {
-                            sum += emoticons[i] * (100 - per[i]) / 100
-
+                            sum += emoticons[i] * (100 - emoticonPrice[i]) / 100
                         }
                     }
                     if (sum >= user[1]) plusUser++
