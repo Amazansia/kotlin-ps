@@ -1,4 +1,4 @@
-//package kotlin.마법의엘리베이터
+package kotlin.마법의엘리베이터
 /*
 100
 -> 1
