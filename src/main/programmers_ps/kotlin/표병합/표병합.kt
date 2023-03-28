@@ -1,4 +1,4 @@
-//package kotlin.표병합
+package kotlin.표병합
 /*
 표 크기 50 * 50
 업데이트 r c value
