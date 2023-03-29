@@ -1,14 +1,19 @@
-import java.util.*
-import kotlin.time.DurationUnit
-import kotlin.time.toDuration
-
 fun main() = with(System.`in`.bufferedReader()) {
-//	var tv = TimedValue(Int, 10.toDuration(DurationUnit.MILLISECONDS))
+    open class Person(val name: String, val age: Int) {
+        open fun cry() {
+            print("person cry")
+        }
+    }
 
-    var test = 1397239847.toDuration(DurationUnit.MILLISECONDS)
-    println(test)
-    print(test.inWholeHours.toInt())
+    class Student(name: String, age: Int, val id: Int) : Person(name, age) {
+        override fun cry() {
+            print("student cry")
+        }
+    }
 
-    var pq = PriorityQueue<Int>()
-    var qq: Queue<Int> = LinkedList()
+    // 업캐스팅
+    val person: Person = Student("J", 32, 20171218)
+    // 다운캐스팅
+    val student = person as Student
+    print(student.id)
 }
