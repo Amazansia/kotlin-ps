@@ -1,6 +1,8 @@
 import java.util.*
 
 /*
+1->3 :2
+3->1 :2
 V 100000, D 10000
 1 000 000 000 -> 10억, int 이내
 트리의 정의: 무방향 그래프이면서 사이클이 없는
@@ -72,5 +74,5 @@ fun main() = with(System.`in`.bufferedReader()) {
     visited = BooleanArray(V + 1)
     dfs(num, 0)
     println(maxValue)
-     */
+    */
 }
