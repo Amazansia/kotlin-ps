@@ -45,55 +45,35 @@ f K
 k보다 크다면 ...
 * */
 fun main() = with(System.`in`.bufferedReader()) {
-	var (N, K) = readLine().trim().split(" ").map { it.toInt() }
-	if (N <= K) {
-		print(0)
-		return@with
-	}
+    var (N, K) = readLine().trim().split(" ").map { it.toInt() }
+//    if (N <= K) {
+//        print(0)
+//        return@with
+//    }
+//    var answer = 0
+//
+//    while (true) {
+//        var count = 0
+//        var temp = N
+//        while (temp > 0) {
+//            if (temp % 2 == 1) {
+//                count++
+//            }
+//            temp /= 2
+//        }
+//        if (count <= K) break
+//        N++
+//        answer++
+//    }
+    var answer = 0
+    while (N.countOneBits() > K) {
+        var t = 1
+        while (N and t != t) {
+            t = t shl 1
+        }
+        N += t
+        answer += t
+    }
+    print(answer)
 
-	// N > K
-	var numBinary = Integer.toBinaryString(N) ?: "0"
-	var totalOne = numBinary.count { it == '1' }
-	// 1111 0100 0010 0100 0000
-	if (totalOne <= K) {
-		print(0)
-		return@with
-	}
-	var numlen = numBinary.length
-	var frontOneCount = 0
-	var firstZeroIdx = 0
-	for (i in numBinary.indices) {
-		if (numBinary[i] == '0') {
-			firstZeroIdx = i
-			var idx = i
-			while(idx < numlen){
-
-			}
-			break
-		}
-		frontOneCount++
-	}
-
-	if (numBinary.substring(firstZeroIdx).contains('1')) {
-		// frontOneCount > K && 뒤에 1이 있다면 자릿수 플러스해주기
-		// 1111 1000 -> 5, K = 2 -> 1 0000 0000
-		if (frontOneCount >= K) {
-			var str = StringBuilder("0".repeat(numlen))
-			str[0] = '1'
-			str.append("0")
-			var num = str.toString().toInt(2)
-			println(num - N)
-		}
-		// frontOneCount <= K && 뒤에 1이 있다면
-		// 1111 0000 -> 4 , K = 5 -> ok
-		// 1101 2
-		else {
-			var str = StringBuilder("0".repeat(numlen - 1))
-			str.replace(0, K - 1, "1".repeat(K))
-//			println(str)
-
-			var num = str.toString().toInt(2)
-			println(num - N)
-		}
-	}
 }
