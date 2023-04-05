@@ -3,7 +3,7 @@ package java.jobda_1;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution {
+class PN1 {
 
     public class Node {
         int x;
