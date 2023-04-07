@@ -11,6 +11,16 @@ parent[i]에 부모 index 저장
 r ~20, c ~8
 -> 이렇게 하면 키 하나가 여러 조합에 사용될 때 올바르게 판별할 수 없음 쥐엔장~!
 유파가 아니네용.
+
+3차시도 - 성공
+틀린 이유
+	1. booleanarrays.count { true } -> count함수를 이렇게 쓰면 안된다!!!
+		booleanarrays에서 값이 true인 원소의 개수를 세고 싶었다.
+		이러려면 아래와 같이 써야 함
+		booleanarrays.count { it }
+	2. 유일성 검사를 하는 for문에서 count로 "빠지면 후보키가 될 수 없는 원소" 체크를 해야 한다는 생각을 늦게 함
+	3. (1, 3)과 (3, 1)은 같은 경우이다: 처음 dfs를 돌릴 때 순서 상관없이 돌리다 보니 이러한 경우를 따로 카운트하게 됨
+		!!!순서가 중요하지 않을 경우 순서를 강제해서 "하나의 경우"로 카운트해야 한다!!!
 * */
 
 class Solution {
@@ -37,6 +47,13 @@ class Solution {
 			var keys = relation.map { it.filterIndexed { index, _ -> visited[index] } }
 //			println(keys.joinToString(" "))
 //			 isUnique: 식별가능
+			// 이 함수가 특별하다:
+			// keys는 List<List<String>> 타입인데 이 내부의 List<String> 타입을 식별해 준다
+			// kotlin에서는 == 가 참조 타입의 값을 비교하여 동등성을 판별한다. 내부적으로는 equals를 호출함.
+			// 동등성: 두 개의 객체가 같은 정보를 갖고 있다
+			// In Java: eqauls()는 list 비교를 할 때, 각 리스트가 동일한 "원소"를 동일한 "순서"로 가지고 있다면 그것을 동일하다고 판단한다.
+			// 아하
+			// 그래서 it == key가 ([100, ryan] [200, apeach]) 기대했던 대로 true/false를 적절히 반환하는 듯
 			for (key in keys) {
 				if (keys.count { it == key } != 1) {
 //					println("cc")
