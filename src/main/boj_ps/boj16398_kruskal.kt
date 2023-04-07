@@ -4,7 +4,7 @@ import java.util.*
 // E log E
 // 이 문제에서 E = N(N - 1)/2 이므로, prim보다 빠를 수 없다...고 예상됨
 
-lateinit var parent: IntArray
+private lateinit var parent: IntArray
 
 private fun union(_x: Int, _y: Int) {
 	var x = find(_x)
