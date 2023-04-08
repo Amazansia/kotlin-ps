@@ -1,4 +1,4 @@
-//package kotlin_.후보키
+package kotlin_.후보키
 /*
 후보키: 튜플을 유일하게 식별할 수 있는
 유일성 & 최소성 둘다 만족
