@@ -15,5 +15,9 @@ fun main() = with(System.`in`.bufferedReader()) {
     val person: Person = Student("J", 32, 20171218)
     // 다운캐스팅
     val student = person as Student
-    print(student.id)
+
+
+    var visited = booleanArrayOf(false, true, true, false)
+
+    print(visited.count { true })
 }

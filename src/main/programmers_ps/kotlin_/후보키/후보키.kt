@@ -24,11 +24,11 @@ r ~20, c ~8
 * */
 
 class Solution {
-	fun solution(relation: Array<Array<String>>): Int {
-		var answer = 0
+    fun solution(relation: Array<Array<String>>): Int {
+        var answer = 0
 
-		// 속성에 대해 방문처리
-		var visited = BooleanArray(relation[0].size)
+        // 속성에 대해 방문처리
+        var visited = BooleanArray(relation[0].size)
 //		var parent = IntArray(relation[0].size) { -1 }
 //
 //		// 세미 유니온파인드

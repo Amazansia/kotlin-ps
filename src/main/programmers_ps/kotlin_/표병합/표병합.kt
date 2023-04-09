@@ -86,6 +86,7 @@ class Solution {
                         }
                     }
                 }
+
                 "MERGE" -> {
                     var o1 = list.find { it.r == com[1].toInt() && it.c == com[2].toInt() } ?: Ver(
                         com[1].toInt(),
@@ -105,6 +106,7 @@ class Solution {
                     union(o1, o2)
 
                 }
+
                 "UNMERGE" -> {
                     var root = list.find { it.r == com[1].toInt() && it.c == com[2].toInt() } ?: Ver(
                         com[1].toInt(),
@@ -113,15 +115,22 @@ class Solution {
 
                     var saveValue = find(root).value
 
-                    var removelist = mutableListOf<Ver>()
+//                    var removelist = mutableListOf<Ver>()
 
-                    for (i in list) {
-                        if (find(i) == find(root)) {
-                            removelist.add(i)
+//                    for (i in list) {
+//                        if (find(i) == find(root)) {
+//                            removelist.add(i)
+//                        }
+//                    }
+//                    for (i in removelist) {
+//                        list.remove(i)
+//                    }
+
+                    var rmIter: MutableIterator<Ver> = list.iterator()
+                    while (rmIter.hasNext()) {
+                        if (find(rmIter.next()) == find(root)) {
+                            rmIter.remove()
                         }
-                    }
-                    for (i in removelist) {
-                        list.remove(i)
                     }
 
                     var newAdd = list.find { it.r == com[1].toInt() && it.c == com[2].toInt() } ?: Ver(
@@ -132,6 +141,7 @@ class Solution {
 
                     list.add(newAdd)
                 }
+
                 "PRINT" -> {
                     var str = find(list.find { it.r == com[1].toInt() && it.c == com[2].toInt() } ?: Ver(
                         com[1].toInt(),
