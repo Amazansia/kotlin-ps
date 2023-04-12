@@ -3,8 +3,6 @@ import java.util.*
 fun main() = with(System.`in`.bufferedReader()) {
     val (N, M) = readLine().split(" ").map { it.toInt() }
 
-//    var nodes: Array<ArrayList<Int>> = Array(N + 1) { arrayListOf() }
-
     var nodes = ArrayList<MutableList<Int>>()
     repeat(N + 1) {
         nodes.add(mutableListOf())
