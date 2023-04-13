@@ -1,6 +1,7 @@
-import kotlin.math.*
+package kotlin_.풍선터트리기
 
-//package kotlin_.풍선터트리기
+import kotlin.math.min
+
 /*
 풍선 n개를 일렬로 나열
 1개 남을 때까지 터트린다
@@ -23,37 +24,37 @@ for문을 돌면서 기타 예외처리: 왼쪽&오른쪽&양쪽에 배열이 �
 * */
 
 class Solution {
-	fun solution(a: IntArray): Int {
-		var answer: Int = 0
+    fun solution(a: IntArray): Int {
+        var answer: Int = 0
 
-		var len = a.size
+        var len = a.size
 
-		if (a.size < 3)
-			return a.size
+        if (a.size < 3)
+            return a.size
 
-		// left_min[i]: 0~i의 원소 중 최솟값
-		var leftMin = IntArray(len)
-		leftMin[0] = a[0]
-		// right_min[i]: i~n의 원소 중 최솟값(역방향)
-		var rightMin = IntArray(len)
-		rightMin[len - 1] = a[len - 1]
+        // left_min[i]: 0~i의 원소 중 최솟값
+        var leftMin = IntArray(len)
+        leftMin[0] = a[0]
+        // right_min[i]: i~n의 원소 중 최솟값(역방향)
+        var rightMin = IntArray(len)
+        rightMin[len - 1] = a[len - 1]
 
-		for (i in 1 until len) {
-			leftMin[i] = min(leftMin[i - 1], a[i])
-		}
+        for (i in 1 until len) {
+            leftMin[i] = min(leftMin[i - 1], a[i])
+        }
 
-		for (i in len - 2 downTo 0) {
-			rightMin[i] = min(rightMin[i + 1], a[i])
-		}
+        for (i in len - 2 downTo 0) {
+            rightMin[i] = min(rightMin[i + 1], a[i])
+        }
 
-		answer += 2
+        answer += 2
 
-		for (i in 1 until len - 1) {
-			if (a[i] > leftMin[i - 1] && a[i] > rightMin[i+1])
-				continue
-			answer++
-		}
+        for (i in 1 until len - 1) {
+            if (a[i] > leftMin[i - 1] && a[i] > rightMin[i + 1])
+                continue
+            answer++
+        }
 
-		return answer
-	}
+        return answer
+    }
 }

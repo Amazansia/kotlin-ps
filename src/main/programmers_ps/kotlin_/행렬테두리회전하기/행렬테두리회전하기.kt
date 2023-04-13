@@ -50,7 +50,6 @@ class Solution {
             newArr.add(0, temp)
             newArr.removeAt(newArr.lastIndex)
             answer.add(newArr.minOrNull() ?: -1)
-//            println(newArr.joinToString(" "))
 
             var idx = 0
             for (i in y1..y2) {
