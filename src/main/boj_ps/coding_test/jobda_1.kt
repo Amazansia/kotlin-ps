@@ -10,6 +10,7 @@ n은 도네이션 리스트
 
 fun solution(n: Int, c: Int, d: Int, a: Array<String>, b: IntArray): Long {
     var answer = b.sum() * 100
+	var temp = ArrayList<Int>()
 
     var donationList: SortedMap<String, Long> = TreeMap()
     for (i in 0 until n) {
