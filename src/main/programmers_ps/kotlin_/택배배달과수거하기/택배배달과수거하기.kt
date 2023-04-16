@@ -29,7 +29,6 @@ class Solution {
 				answer += lastdis * 2
 				var c = cap
 
-
 				if(delSum > 0){
 					var ddis = lastdis
 					while(c > 0 && ddis > 0){
