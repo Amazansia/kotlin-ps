@@ -21,7 +21,7 @@ class Solution {
 				var xx = dx[i] + x
 				var yy = dy[i] + y
 				// 범위검사
-				if (xx !in 0 until table.size || yy !in 0 until table[0].size) {
+				if (xx !in table.indices || yy !in 0 until table[0].size) {
 					continue
 				}
 				if (table[xx][yy] == 1 && !visited[xx][yy]) {
@@ -39,7 +39,7 @@ class Solution {
 				var xx = dx[i] + x
 				var yy = dy[i] + y
 				// 범위검사
-				if (xx !in 0 until table.size || yy !in 0 until table[0].size) {
+				if (xx !in table.indices || yy !in 0 until table[0].size) {
 					continue
 				}
 				if (game_board[xx][yy] == 0 && !visited[xx][yy]) {
@@ -55,7 +55,7 @@ class Solution {
 		// 퍼즐 정보를 저장해서 리턴하는 함수
 		var visited = Array(table.size) { BooleanArray(table[0].size) }
 		fun findPuzzles() {
-			for (i in 0 until table.size) {
+			for (i in table.indices) {
 				for (j in 0 until table[0].size) {
 					if (table[i][j] == 1) {
 						var puzzle = mutableListOf<Pair<Int, Int>>()
@@ -86,7 +86,7 @@ class Solution {
 						var dx = b[0].first + np[i].first
 						var dy = b[0].second + np[i].second
 						// 범위를 벗어나면
-						if (dx !in 0 until table.size || dy !in 0 until table[0].size) {
+						if (dx !in table.indices || dy !in 0 until table[0].size) {
 							break
 						}
 						if (dx == b[i].first && dy == b[i].second && i == b.size - 1) {
@@ -106,7 +106,7 @@ class Solution {
 		fun putPuzzles() {
 			visited.forEach { it.fill(false) }
 
-			for (i in 0 until table.size) {
+			for (i in table.indices) {
 				for (j in 0 until table[0].size) {
 					if (game_board[i][j] == 0 && !visited[i][j]) {
 						var blank = mutableListOf<Pair<Int, Int>>()
