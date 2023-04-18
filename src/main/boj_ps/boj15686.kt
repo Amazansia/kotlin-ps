@@ -46,8 +46,6 @@ fun main() = with(System.`in`.bufferedReader()) {
         var ret = 0
         var remainCC = cc.filterIndexed { i, _ -> visited[i] }
 
-
-
         for (h in house) {
             var sum = Int.MAX_VALUE
             for (c in remainCC) {
@@ -64,7 +62,6 @@ fun main() = with(System.`in`.bufferedReader()) {
     }
 
     fun dfs(now: Int, count: Int, visited: BooleanArray) {
-
         visited[now] = true
 
         if (count == M) {
