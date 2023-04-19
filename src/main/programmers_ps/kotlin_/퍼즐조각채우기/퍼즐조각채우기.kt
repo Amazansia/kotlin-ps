@@ -9,15 +9,15 @@
 퍼즐 정보 저장: mutablelist
 * */
 class Solution {
-    val dx = intArrayOf(0, 1, 0, -1)
-    val dy = intArrayOf(1, 0, -1, 0)
+    val dx = intArrayOf(0, 0, 1, 0, -1)
+    val dy = intArrayOf(0, 1, 0, -1, 0)
     fun solution(game_board: Array<IntArray>, table: Array<IntArray>): Int {
-        var answer: Int = 0
+        var answer = 0
         var puzzles = mutableListOf<MutableList<Pair<Int, Int>>>()
 
         // dfs로 퍼즐 정보를 찾아내는 함수
         fun dfs(x: Int, y: Int, puzzle: MutableList<Pair<Int, Int>>, visited: Array<BooleanArray>) {
-            for (i in 0 until 4) {
+            for (i in 0 until 5) {
                 var xx = dx[i] + x
                 var yy = dy[i] + y
                 // 범위검사
@@ -36,7 +36,7 @@ class Solution {
 
         // dfs로 퍼즐 정보를 찾아내는 함수
         fun dfs_blank(x: Int, y: Int, puzzle: MutableList<Pair<Int, Int>>, visited: Array<BooleanArray>) {
-            for (i in 0 until 4) {
+            for (i in 0 until 5) {
                 var xx = dx[i] + x
                 var yy = dy[i] + y
                 // 범위검사
@@ -58,7 +58,7 @@ class Solution {
         fun findPuzzles() {
             for (i in table.indices) {
                 for (j in 0 until table[0].size) {
-                    if (table[i][j] == 1) {
+                    if (table[i][j] == 1 && !visited[i][j]) {
                         var puzzle = mutableListOf<Pair<Int, Int>>()
 //						puzzle.add(i to j)
                         dfs(i, j, puzzle, visited)
@@ -76,52 +76,62 @@ class Solution {
         }
 
         fun matchWithRotation(b: MutableList<Pair<Int, Int>>): Boolean {
+            var bFirst = b.first()
+            var newBlank = b.map { it.first - bFirst.first to it.second - bFirst.second }
             puzzles.filter { it.size == b.size }.forEach { puzzle ->
-                var np =
-                    puzzle.sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
+                var np = puzzle.sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
                 var rot = 0
 
-                println("firstNP: ${np.joinToString(" ")}")
-
-                while (rot < 4) {
-//                    np = np.mapIndexed { _, pair -> b[0].first + pair.first to b[0].second + pair.second }
-//                    for (i in b.indices) {
-//                        if (np[i].first !in table.indices || np[i].second !in 0 until table[0].size) break
-//                        if (b[i].first == np[i].first && b[i].first == np[i].second && i == b.size - 1) {
-//                            puzzles.remove(puzzle)
-//                            return true
-//                        }
-//                    }
-
-                    for (i in b.indices) {
-                        var dx = b[0].first + np[i].first
-                        var dy = b[0].second + np[i].second
-                        // 범위를 벗어나면
-                        if (dx !in table.indices || dy !in 0 until table[0].size) {
-                            break
-                        }
-                        if (dx == b[i].first && dy == b[i].second && i == b.size - 1) {
-                            println(b.joinToString(" "))
-                            println(puzzle.joinToString(" "))
-                            puzzles.remove(puzzle)
-                            return true
-                        }
+                while (rot < 5) {
+                    if (newBlank == np) {
+                        puzzles.remove(puzzle)
+//                        println(puzzles.size)
+//                        println(puzzles.joinToString("\n"))
+                        return true
                     }
+
                     np = np.map { it.second to -1 * it.first }
                         .sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
-                    var np_x = np.minOf { it.first }
-                    var np_y = np.minOf { it.second }
-                    np = np.map { it.first - np_x to it.second - np_y }
-                    println("rot: $rot")
-                    println("np: ${np.joinToString(" ")}")
+                    var npFirst = np.first()
+                    np = np.map { it.first - npFirst.first to it.second - npFirst.second }
                     rot++
                 }
             }
-            // 이게 왜나오는거?? return false: (1, 0) (1, 1) (2, 0)
-            // 0,0 0,1 1,0
-            println("return false: ${b.joinToString(" ")}")
             return false
         }
+
+
+//        fun matchWithRotation(b: MutableList<Pair<Int, Int>>): Boolean {
+//            var bFirst = b.first()
+//            var newBlank = b.map { it.first - bFirst.first to it.second - bFirst.second }
+//            puzzles.filter { it.size == b.size }.forEach { puzzle ->
+//                var np =
+//                    puzzle.sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
+//                var rot = 0
+//
+////                println("firstNP: ${np.joinToString(" ")}")
+//
+//                while (rot < 4) {
+//
+//                    if (newBlank == np) {
+//                        puzzles.remove(puzzle)
+//                        return true
+//                    }
+//
+//                    np = np.map { it.second to -1 * it.first }
+//                        .sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
+//                    var npFirst = np.first()
+//                    np = np.map { it.first - npFirst.first to it.second - npFirst.second }
+////                    println("rot: $rot")
+////                    println("np: ${np.joinToString(" ")}")
+//                    rot++
+//                }
+//            }
+//            // 이게 왜나오는거?? return false: (1, 0) (1, 1) (2, 0)
+//            // 0,0 0,1 1,0
+////            println("return false: ${b.joinToString(" ")}")
+//            return false
+//        }
 
         //		println(visited.joinToString(" "))
         fun putPuzzles() {
@@ -130,25 +140,32 @@ class Solution {
                 for (j in 0 until table[0].size) {
                     if (game_board[i][j] == 0 && !visited[i][j]) {
                         var blank = mutableListOf<Pair<Int, Int>>()
-//						blank.add(i to j)
+//                        blank.add(i to j)
                         dfs_blank(i, j, blank, visited)
                         if (blank.isNotEmpty()) {
+//                            if (blank.size == 2) {
+//                                println("size2 blank: ${blank.joinToString(" ")}")
+//                            }
                             blank.sortWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
-                            println("blank: ${blank.joinToString(" ")}")
+//                            println("blank: ${blank.joinToString(" ")}")
                             if (matchWithRotation(blank)) {
                                 answer += blank.size
-                            }
+//                            } else {
+//                                println("match failed Blank: ${blank.joinToString(" ")}")
+//                            }
 //                            println(puzzles.size)
+                            }
                         }
-                    }
+                    } else if (game_board[i][j] == 1)
+                        visited[i][j] = true
                 }
             }
         }
 
         findPuzzles()
-//		println("")
-//		println(puzzles.joinToString(" "))
         putPuzzles()
+
+//        visited.forEach { println(it.joinToString { t -> if (t) "1" else "0" }) }
 
         return answer
     }
