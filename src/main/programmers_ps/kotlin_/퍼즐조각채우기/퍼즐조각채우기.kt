@@ -109,12 +109,16 @@ class Solution {
                     }
                     np = np.map { it.second to -1 * it.first }
                         .sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
-
+                    var np_x = np.minOf { it.first }
+                    var np_y = np.minOf { it.second }
+                    np = np.map { it.first - np_x to it.second - np_y }
+                    println("rot: $rot")
                     println("np: ${np.joinToString(" ")}")
                     rot++
                 }
             }
             // 이게 왜나오는거?? return false: (1, 0) (1, 1) (2, 0)
+            // 0,0 0,1 1,0
             println("return false: ${b.joinToString(" ")}")
             return false
         }
