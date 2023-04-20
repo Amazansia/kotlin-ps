@@ -1,13 +1,11 @@
 //package kotlin_.퍼즐조각채우기
-
 /*
-빈칸에 딱 맞아야 함
-게임보드에서 원래 막힌 칸은 1, 퍼즐로 채워지는 칸은 2, 빈칸은 0
-테이블에 놓인 퍼즐의 정보?
-퍼즐을 회전하는 게 아니라 게임테이블을 회전시킨다면?
-한번 회전시킬 경우 (x, y) -> (y, N-x)로 변환됨
-퍼즐 정보 저장: mutablelist
+1. 테이블에서 어떻게 퍼즐을 추출할 것인가
+2. 게임보드에서 빈칸을 어떻게 추출할 것인가
+3. 퍼즐을 어떻게 회전할 것인가
+4. 게임보드에 이 회전되는 퍼즐을 어떻게 맞출 것인가?
 * */
+
 class Solution {
     val dx = intArrayOf(0, 0, 1, 0, -1)
     val dy = intArrayOf(0, 1, 0, -1, 0)
@@ -25,11 +23,10 @@ class Solution {
                     continue
                 }
                 if (table[xx][yy] == 1 && !visited[xx][yy]) {
+                    // 0,0 0,1 1,1 2,1 2,2
                     puzzle.add(xx to yy)
                     visited[xx][yy] = true
                     dfs(xx, yy, puzzle, visited)
-                    // 이줄 있어야하나?
-//					visited[xx][yy] = false
                 }
             }
         }
@@ -47,8 +44,6 @@ class Solution {
                     puzzle.add(xx to yy)
                     visited[xx][yy] = true
                     dfs_blank(xx, yy, puzzle, visited)
-                    // 이줄 있어야하나?
-//					visited[xx][yy] = false
                 }
             }
         }
@@ -60,11 +55,7 @@ class Solution {
                 for (j in 0 until table[0].size) {
                     if (table[i][j] == 1 && !visited[i][j]) {
                         var puzzle = mutableListOf<Pair<Int, Int>>()
-//						puzzle.add(i to j)
                         dfs(i, j, puzzle, visited)
-                        // [4,1] [4,2] [5,2] -> [0,0] [0,1] [1,1]
-//						var xMax = puzzle.maxOf { it.first }
-//						var yMax = puzzle.maxOf { it.second }
                         if (puzzle.isNotEmpty()) {
                             puzzle = puzzle.map { it.first - i to it.second - j }.toMutableList()
                             puzzle.sortWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
@@ -76,13 +67,17 @@ class Solution {
         }
 
         fun matchWithRotation(b: MutableList<Pair<Int, Int>>): Boolean {
+            // 퍼즐은 0,0 원점으로 초기화해서 저장했었다
+            // 8,1 8,2 9,1 9,2 9,3
+            // 0,0 0,1 1,0 1,1 1,2
             var bFirst = b.first()
             var newBlank = b.map { it.first - bFirst.first to it.second - bFirst.second }
             puzzles.filter { it.size == b.size }.forEach { puzzle ->
+                // 소트 안해도 될듯
                 var np = puzzle.sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
                 var rot = 0
 
-                while (rot < 5) {
+                while (rot < 4) {
                     if (newBlank == np) {
                         puzzles.remove(puzzle)
 //                        println(puzzles.size)
@@ -93,6 +88,8 @@ class Solution {
                     np = np.map { it.second to -1 * it.first }
                         .sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
                     var npFirst = np.first()
+                    // -1,-1 , 0,0
+                    // 0,0 1,1
                     np = np.map { it.first - npFirst.first to it.second - npFirst.second }
                     rot++
                 }
@@ -100,52 +97,14 @@ class Solution {
             return false
         }
 
-
-//        fun matchWithRotation(b: MutableList<Pair<Int, Int>>): Boolean {
-//            var bFirst = b.first()
-//            var newBlank = b.map { it.first - bFirst.first to it.second - bFirst.second }
-//            puzzles.filter { it.size == b.size }.forEach { puzzle ->
-//                var np =
-//                    puzzle.sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
-//                var rot = 0
-//
-////                println("firstNP: ${np.joinToString(" ")}")
-//
-//                while (rot < 4) {
-//
-//                    if (newBlank == np) {
-//                        puzzles.remove(puzzle)
-//                        return true
-//                    }
-//
-//                    np = np.map { it.second to -1 * it.first }
-//                        .sortedWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
-//                    var npFirst = np.first()
-//                    np = np.map { it.first - npFirst.first to it.second - npFirst.second }
-////                    println("rot: $rot")
-////                    println("np: ${np.joinToString(" ")}")
-//                    rot++
-//                }
-//            }
-//            // 이게 왜나오는거?? return false: (1, 0) (1, 1) (2, 0)
-//            // 0,0 0,1 1,0
-////            println("return false: ${b.joinToString(" ")}")
-//            return false
-//        }
-
-        //		println(visited.joinToString(" "))
         fun putPuzzles() {
             visited.forEach { it.fill(false) }
             for (i in table.indices) {
                 for (j in 0 until table[0].size) {
                     if (game_board[i][j] == 0 && !visited[i][j]) {
                         var blank = mutableListOf<Pair<Int, Int>>()
-//                        blank.add(i to j)
                         dfs_blank(i, j, blank, visited)
                         if (blank.isNotEmpty()) {
-//                            if (blank.size == 2) {
-//                                println("size2 blank: ${blank.joinToString(" ")}")
-//                            }
                             blank.sortWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
 //                            println("blank: ${blank.joinToString(" ")}")
                             if (matchWithRotation(blank)) {
