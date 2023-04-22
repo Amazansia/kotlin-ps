@@ -2,9 +2,11 @@
 
 class Solution {
     fun solution(today: String, terms: Array<String>, privacies: Array<String>): IntArray {
+
         fun calculateDate(str: String): Int {
-            var temp = str.split(" ").map { it.toInt() }
-            return (temp[0] - 2000) * 12 * 28 + temp[1] * 28 + temp[0]
+            var temp = str.split(".").map { it.toInt() }
+//            println("str: $str, ret: ${temp[0] * 12 * 28 + temp[1] * 28 + temp[0]}")
+            return temp[0] * 12 * 28 + temp[1] * 28 + temp[2]
         }
 
         var expireTime = HashMap<String, Int>()
@@ -17,11 +19,17 @@ class Solution {
         var todayNum = calculateDate(today)
 
         fun isExpired(date: Int, term: String): Boolean {
-            return date + expireTime.getOrDefault(term, 0) * 28 > todayNum
+            return date + expireTime.getOrDefault(term, 0) * 28 <= todayNum
         }
 
 
-
+        var i = 1
+        for (privacy in privacies) {
+            var pvlist = privacy.split(" ")
+//            println(pvlist.joinToString(" "))
+            if (isExpired(calculateDate(pvlist[0]), pvlist[1])) answer.add(i)
+            i++
+        }
 
         return answer.toIntArray()
     }
