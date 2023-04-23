@@ -5,7 +5,6 @@ class Solution {
 
         fun calculateDate(str: String): Int {
             var temp = str.split(".").map { it.toInt() }
-//            println("str: $str, ret: ${temp[0] * 12 * 28 + temp[1] * 28 + temp[0]}")
             return temp[0] * 12 * 28 + temp[1] * 28 + temp[2]
         }
 
