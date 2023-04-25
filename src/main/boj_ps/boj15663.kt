@@ -6,7 +6,6 @@ fun main() = with(System.`in`.bufferedReader()) {
     var visited = BooleanArray(arr.size)
     var answerSet = mutableSetOf<List<Int>>()
 
-    // now: 인덱스
     fun dfs(len: Int, combination: IntArray) {
         if (len == M) {
             answerSet.add(combination.toList())
