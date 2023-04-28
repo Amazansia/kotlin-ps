@@ -3,6 +3,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     var arr = readLine().split(" ").map { it.toInt() }.toIntArray()
     arr.sort()
 
+
     var visited = BooleanArray(arr.size)
     var answerSet = mutableSetOf<List<Int>>()
 
