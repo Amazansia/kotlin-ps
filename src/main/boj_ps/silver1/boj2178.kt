@@ -17,9 +17,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     var now = 0 to 0
     var dxdy = arrayOf(1 to 0, 0 to 1, -1 to 0, 0 to -1)
 
-    var pq =
-        PriorityQueue<Pair<Int, Int>>(compareBy<Pair<Int, Int>> { count[it.first][it.second] })
-//    PriorityQueue<Pair<Int, Int>>(compareBy<Pair<Int, Int>> { abs(now.first - it.first) + abs(now.second - it.second) })
+    var pq = PriorityQueue(compareBy<Pair<Int, Int>> { count[it.first][it.second] })
 
     pq.add(now)
     visited[0][0] = true
