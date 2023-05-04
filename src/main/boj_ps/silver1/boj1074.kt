@@ -1,3 +1,5 @@
+package silver1
+
 import kotlin.math.pow
 
 fun main() = with(System.`in`.bufferedReader()) {
