@@ -1,3 +1,5 @@
+package gold5
+
 import kotlin.math.floor
 import kotlin.math.sqrt
 
