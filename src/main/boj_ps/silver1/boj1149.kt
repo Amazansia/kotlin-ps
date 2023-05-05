@@ -1,3 +1,5 @@
+package silver1
+
 import java.lang.Math.min
 
 /*
@@ -32,7 +34,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     for (i in 0..2) {
         answer = min(answer, dp[N][i])
     }
-    
+
 //    fun dfs(nowIdx: Int, sum: Int, color: Int) {
 //        if (nowIdx == N + 1) {
 //            answer = answer.coerceAtMost(sum)

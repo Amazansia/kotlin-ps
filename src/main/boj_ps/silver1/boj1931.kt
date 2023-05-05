@@ -1,3 +1,5 @@
+package silver1
+
 fun main() = with(System.`in`.bufferedReader()) {
     var N = readLine().toInt()
     var cp = compareBy<Pair<Int, Int>> { it.second }.thenBy { it.first }

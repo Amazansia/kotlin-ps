@@ -1,3 +1,5 @@
+package silver1
+
 import java.util.*
 
 fun main() = with(System.`in`.bufferedReader()) {

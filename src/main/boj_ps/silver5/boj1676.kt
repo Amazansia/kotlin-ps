@@ -1,3 +1,5 @@
+package silver5
+
 import java.lang.Integer.min
 
 fun main() = with(System.`in`.bufferedReader()) {

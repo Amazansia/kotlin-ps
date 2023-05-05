@@ -1,3 +1,5 @@
+package bronzes
+
 fun main() = with(System.`in`.bufferedReader()) {
     var str = readLine()
     while (str != "0") {

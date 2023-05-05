@@ -1,3 +1,5 @@
+package silver5
+
 fun main() = with(System.`in`.bufferedReader()) {
     var board = readLine()
     var length = board.length

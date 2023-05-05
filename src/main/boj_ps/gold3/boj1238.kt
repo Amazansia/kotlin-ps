@@ -1,3 +1,5 @@
+package gold3
+
 import java.lang.Integer.max
 import java.util.*
 

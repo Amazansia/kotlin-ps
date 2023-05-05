@@ -1,3 +1,5 @@
+package gold2
+
 import java.util.*
 
 /*

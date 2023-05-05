@@ -1,18 +1,18 @@
+package silver1
+
 import java.util.*
 
-// BFS가 정석 풀이, 그러나 DFS도 되는듯
-// 연관문제 boj1260
 fun main() = with(System.`in`.bufferedReader()) {
     val (N, M) = readLine().split(" ").map { it.toInt() }
 
-    var tree = ArrayList<MutableList<Int>>()
+    var nodes = ArrayList<MutableList<Int>>()
     repeat(N + 1) {
-        tree.add(mutableListOf())
+        nodes.add(mutableListOf())
     }
 
     for (i in 0 until M) {
         var (X, Y) = readLine().split(" ").map { it.toInt() }
-        tree[Y].add(X)
+        nodes[Y].add(X)
     }
 
     // 정답 저장 리스트
@@ -28,7 +28,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 
         while (q.isNotEmpty()) {
             var now = q.poll()
-            for (node in tree[now]) {
+            for (node in nodes[now]) {
                 if (node == 0) continue
                 if (!visited[node]) {
                     answerlist[i]++
@@ -41,7 +41,10 @@ fun main() = with(System.`in`.bufferedReader()) {
 
     // 리스트에서 정답 찾기
     var maxValue = answerlist.maxOrNull()
+    var bw = System.`out`.bufferedWriter()
     for (i in answerlist.indices) {
-        if (answerlist[i] == maxValue) print("$i ")
+        if (answerlist[i] == maxValue) bw.append("$i ")
     }
+    bw.flush()
+    bw.close()
 }

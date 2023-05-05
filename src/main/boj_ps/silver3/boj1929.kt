@@ -1,3 +1,5 @@
+package silver3
+
 fun main() = with(System.`in`.bufferedReader()) {
     val (N, M) = readLine().split(" ").map { it.toInt() }
     var arr = BooleanArray(1_000_001) { true }
