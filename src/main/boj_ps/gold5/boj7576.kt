@@ -8,6 +8,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     var (N, M) = readLine().split(" ").map { it.toInt() }
     var box = Array(M) { IntArray(N) }
     var visited = Array(M) { BooleanArray(N) }
+
     // 익은 토마토 위치 저장
     var q: Queue<Pair<Int, Int>> = LinkedList()
     var answer = 0
