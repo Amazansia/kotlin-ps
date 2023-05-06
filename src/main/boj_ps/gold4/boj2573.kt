@@ -33,9 +33,9 @@ fun main() = with(System.`in`.bufferedReader()) {
         if (ices.isEmpty()) return false
         var q: Queue<Triple<Int, Int, Int>> = LinkedList()
         var now = ices.peek()
-        var vv = visited.copyOf()
+        var vv = Array(N) { BooleanArray(M) }
         vv[now.first][now.second] = true
-        var count = 1
+        var count = 0
         q.add(now)
 
         while (q.isNotEmpty()) {
@@ -53,7 +53,7 @@ fun main() = with(System.`in`.bufferedReader()) {
             }
         }
 
-        return ices.size == count
+        return ices.size != count
     }
 
     fun countZero(x: Int, y: Int): Int {
@@ -73,10 +73,16 @@ fun main() = with(System.`in`.bufferedReader()) {
     }
 
     fun iceMelting() {
+        var meltingNumArr = Array(N) { IntArray(M) }
+
+        for (i in ices) {
+            meltingNumArr[i.first][i.second] = countZero(i.first, i.second)
+        }
+
         var newIces: Queue<Triple<Int, Int, Int>> = LinkedList()
         while (ices.isNotEmpty()) {
             var now = ices.poll()
-            var res = now.third - countZero(now.first, now.second)
+            var res = now.third - meltingNumArr[now.first][now.second]
             if (res > 0) {
                 sea[now.first][now.second] = res
                 newIces.add(Triple(now.first, now.second, res))
@@ -88,12 +94,12 @@ fun main() = with(System.`in`.bufferedReader()) {
     }
 
     while (ices.isNotEmpty()) {
+        answer++
+        iceMelting()
         if (isIceDivided()) {
             println(answer)
             return@with
         }
-        iceMelting()
-        answer++
     }
 
     println(0)
