@@ -1,3 +1,5 @@
+package bronzes
+
 fun main() = with(System.`in`.bufferedReader()) {
     val N = readLine()
     var arr = readLine().split(" ").map { it.toInt() }.toIntArray()

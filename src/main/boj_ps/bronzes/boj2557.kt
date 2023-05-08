@@ -1,3 +1,5 @@
+package bronzes
+
 fun main() = with(System.`in`.bufferedReader()) {
-	println("Hello World!")
+    println("Hello World!")
 }

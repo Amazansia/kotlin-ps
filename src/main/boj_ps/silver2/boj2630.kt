@@ -1,3 +1,5 @@
+package silver2
+
 fun main() = with(System.`in`.bufferedReader()) {
     var N = readLine().toInt()
     var paper = Array(N) { IntArray(N) { 0 } }

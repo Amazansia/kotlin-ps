@@ -1,3 +1,5 @@
+package silver5
+
 fun main() = with(System.`in`.bufferedReader()) {
     var N = readLine().toInt()
     var dp = Array(100) { BooleanArray(100) { false } }
