@@ -17,7 +17,6 @@ Todo
     2. 정렬기준에 맞는 Comparator 만들기
  * */
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,7 +28,7 @@ class Solution {
     public String[] solution(String[] files) {
         String[] answer = new String[files.length];
 
-        List<String[]> list = new LinkedList();
+        List<String[]> list = new LinkedList<>();
 
         for (int i = 0; i < files.length; i++) {
             list.add(new String[]{"", "", ""});
@@ -59,17 +58,14 @@ class Solution {
             list.get(idx)[2] = file.substring(number);
         }
 
-        Comparator<String[]> com = new Comparator<String[]>() {
-            @Override
-            public int compare(String[] o1, String[] o2) {
-                if (o1[0].equalsIgnoreCase(o2[0])) {
-                    return Integer.parseInt(o1[1]) - Integer.parseInt(o2[1]);
-                }
-                return o1[0].toLowerCase().compareTo(o2[0].toLowerCase());
+        Comparator<String[]> com = (o1, o2) -> {
+            if (o1[0].equalsIgnoreCase(o2[0])) {
+                return Integer.parseInt(o1[1]) - Integer.parseInt(o2[1]);
             }
+            return o1[0].toLowerCase().compareTo(o2[0].toLowerCase());
         };
 
-        Collections.sort(list, com);
+        list.sort(com);
         for (int i = 0; i < files.length; i++) {
             answer[i] = list.get(i)[0] + list.get(i)[1] + list.get(i)[2];
         }
