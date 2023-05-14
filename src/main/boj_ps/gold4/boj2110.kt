@@ -7,7 +7,6 @@ fun main() = with(System.`in`.bufferedReader()) {
         arr[it] = readLine().toInt()
     }
 
-    // 일단 sort...
     arr.sort()
     // 인접한 공유기 사이의 최대거리
     // 판별명제: 최소 mid값만큼의 간격으로 공유기를 모두 설치할 수 있는가
@@ -28,8 +27,7 @@ fun main() = with(System.`in`.bufferedReader()) {
                 remain--
             }
         }
-        if (remain <= 0) return true
-        return false
+        return remain <= 0
     }
 
     while (low <= high) {

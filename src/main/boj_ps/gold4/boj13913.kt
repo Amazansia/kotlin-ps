@@ -41,9 +41,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     var answer = mutableListOf<Int>()
 
     fun isPossible(front: Int, num: Int): Boolean {
-        if (front + 1 == num || front - 1 == num || front * 2 == num)
-            return true
-        return false
+        return front + 1 == num || front - 1 == num || front * 2 == num
     }
 
     var K_pair = root.pop()
@@ -53,7 +51,6 @@ fun main() = with(System.`in`.bufferedReader()) {
 
     while (root.isNotEmpty()) {
         var front = root.pop()
-//        println(front.first)
         if (front.second == now) {
             continue
         }
