@@ -62,8 +62,8 @@ fun main() = with(System.`in`.bufferedReader()) {
         }
     }
 
-
     println(time)
+
     for (i in answer.size - 1 downTo 0) {
         print("${answer[i]} ")
     }
