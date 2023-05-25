@@ -56,6 +56,13 @@ import java.util.*
 22 33 sort
 55 -> 118+55 173
 100,000,000
+
+10개의 원소
+5 ->5
+5->3 ->7번
+3-> 10번
+
+
 * */
 
 
@@ -66,12 +73,12 @@ fun main() = with(System.`in`.bufferedReader()) {
         pq.add(readLine().toInt())
     }
 
-    var answer = 0L
+    var answer = 0
     while (pq.size > 1) {
         var poll1 = pq.poll()
         var poll2 = pq.poll()
         pq.add(poll1 + poll2)
-        answer += poll1.toLong() + poll2
+        answer += poll1 + poll2
     }
 
     println(answer)
