@@ -22,13 +22,13 @@ fun main() = with(System.`in`.bufferedReader()) {
     if (password.length >= 2 && password[1].isDigit()) {
         answer[1] = 1
         var num = password[0].digitToInt() * 10 + password[1].digitToInt()
-        if (num in 10..26) {
+        if (num in 10..26 && num % 10 != 0) {
             answer[1] = 2
         } else if (num > 26 && num % 10 == 0) {
             println(0)
             return@with
         }
-    } else {
+    } else if (password.length >= 2) {
         println(0)
         return@with
     }
@@ -45,14 +45,14 @@ fun main() = with(System.`in`.bufferedReader()) {
         }
 
         // 1자리 숫자 고려
-        if (idx >= 1 && password[idx] != '0') {
-            answer[idx] = max(answer[idx - 1], answer[idx] + answer[idx - 1])
+        if (password[idx] != '0') {
+            answer[idx] = max(answer[idx], answer[idx] + answer[idx - 1])
             answer[idx] %= 1000000
         } else countweird++
 
         // 2자리 숫자 고려
         var num = password[idx - 1].digitToInt() * 10 + password[idx].digitToInt()
-        if (idx >= 1 && num in 10..26) {
+        if (num in 10..26) {
             answer[idx] = max(answer[idx - 1], answer[idx] + answer[idx - 2])
             answer[idx] %= 1000000
             if (num == 10 || num == 20) {
