@@ -1,6 +1,8 @@
 package gold4
 
 import java.util.*
+import kotlin.collections.HashSet
+import kotlin.collections.LinkedHashMap
 
 // 빙산의 높이는 일년마다 동서남북 네 방향으로 붙어있는 0이 저장된 칸의 개수만큼 줄어든다
 // 단, 0보다 더 줄어들지 않는다

@@ -23,7 +23,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 
     for (i in 0 until size) list[i] = min + i
 
-//    println(list.toString())
+    println(list.toString())
 
     var count = 0
     for (i in 0 until k2.size) {
@@ -42,7 +42,7 @@ fun main() = with(System.`in`.bufferedReader()) {
             count++
     }
 
-//    println(list.toString())
+    println(list.toString())
 
     println(count)
 }
