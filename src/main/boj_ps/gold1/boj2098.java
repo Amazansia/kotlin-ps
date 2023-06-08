@@ -17,74 +17,65 @@ void dfs: 출발 도시 & visited 배열 & 현재까지 지나온 경로 합 & �
 경로 없으면 바로 리턴
 경로 비용이 작은 순으로 pq에서 순서대로 pop해서 dfs?
 그렇다면 첫번째로 답이 갱신되었을 경우 그것이 정답
-
 * */
 
-
-import static java.lang.Integer.min;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.PriorityQueue;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class boj2098 {
 
-	static int answer = Integer.MAX_VALUE;
+	static final int INF = 16 * 1_000_001;
+	static int[][] dp;
 	static int N = 0;
-	static int[][] cities;
+	static int[][] map;
 
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
 
-		cities = new int[N][N];
+		map = new int[N][N];
+		dp = new int[N][(1 << N)];
 
 		for (int i = 0; i < N; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < N; j++) {
-				cities[i][j] = Integer.parseInt(st.nextToken());
+				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 
-		boolean[] visited = new boolean[N];
-		visited[0] = true;
-		dfs(0, visited, 0, 0, 0);
+//		for (int i = 0; i < N; i++) {
+//			Arrays.fill(dp[i], INF);
+//		}
 
-		System.out.println(answer);
+		System.out.println(dfs(0, 1));
 	}
 
-	//	void dfs: 출발 도시 & visited 배열 & 현재까지 지나온 경로 합 & 이제까지 지나온 노드 카운트
-	// 종료조건: 지나온 노드가 N-1과 같고 현재 노드가 출발 도시라면 최솟값으로 저장...
-	private static void dfs(int start, boolean[] visited, int now, int sum, int cityCount) {
-		if (sum >= answer) {
-			return;
+	private static int dfs(int city, int visited) {
+
+		if (dp[city][visited] != 0) {
+			return dp[city][visited];
 		}
 
-		if (cityCount == N - 1) {
-			answer = min(answer, sum + cities[now][start]);
-			return;
+		if (visited == (1 << N) - 1) {
+			return dp[city][visited] = map[city][0] != 0 ? map[city][0] : INF;
 		}
 
-		PriorityQueue<Integer> pq = new PriorityQueue();
+		dp[city][visited] = INF;
+
 		for (int i = 0; i < N; i++) {
-			if (visited[i]) {
+			if ((visited & (1 << i)) != 0 || map[city][i] == 0) {
 				continue;
 			}
-			if (cities[now][i] != 0) {
-				pq.add(i);
-			}
+			dp[city][visited] = Math.min(dp[city][visited],
+				dfs(i, visited | (1 << i)) + map[city][i]);
+
 		}
 
-		while (!pq.isEmpty()) {
-			int next = pq.poll();
-			visited[next] = true;
-			dfs(start, visited, next, sum + cities[now][next], cityCount + 1);
-			visited[next] = false;
-		}
+		return dp[city][visited];
 	}
-
-
 }
