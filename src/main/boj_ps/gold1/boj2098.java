@@ -48,10 +48,6 @@ public class boj2098 {
 			}
 		}
 
-//		for (int i = 0; i < N; i++) {
-//			Arrays.fill(dp[i], INF);
-//		}
-
 		System.out.println(dfs(0, 1));
 	}
 
