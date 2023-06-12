@@ -23,55 +23,54 @@ void dfs: 출발 도시 & visited 배열 & 현재까지 지나온 경로 합 & �
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class boj2098 {
 
-	static final int INF = 16 * 1_000_001;
-	static int[][] dp;
-	static int N = 0;
-	static int[][] map;
+    static final int INF = 16 * 1_000_001;
+    static int[][] dp;
+    static int N = 0;
+    static int[][] map;
 
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		N = Integer.parseInt(br.readLine());
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
 
-		map = new int[N][N];
-		dp = new int[N][(1 << N)];
+        map = new int[N][N];
+        dp = new int[N][(1 << N)];
 
-		for (int i = 0; i < N; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			for (int j = 0; j < N; j++) {
-				map[i][j] = Integer.parseInt(st.nextToken());
-			}
-		}
+        for (int i = 0; i < N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < N; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+            }
+        }
 
-		System.out.println(dfs(0, 1));
-	}
+        System.out.println(dfs(0, 1));
+    }
 
-	private static int dfs(int city, int visited) {
+    private static int dfs(int city, int visited) {
 
-		if (dp[city][visited] != 0) {
-			return dp[city][visited];
-		}
+        if (dp[city][visited] != 0) {
+            return dp[city][visited];
+        }
 
-		if (visited == (1 << N) - 1) {
-			return dp[city][visited] = map[city][0] != 0 ? map[city][0] : INF;
-		}
+        if (visited == (1 << N) - 1) {
+            return dp[city][visited] = map[city][0] != 0 ? map[city][0] : INF;
+        }
 
-		dp[city][visited] = INF;
+        dp[city][visited] = INF;
 
-		for (int i = 0; i < N; i++) {
-			if ((visited & (1 << i)) != 0 || map[city][i] == 0) {
-				continue;
-			}
-			dp[city][visited] = Math.min(dp[city][visited],
-				dfs(i, visited | (1 << i)) + map[city][i]);
+        for (int i = 0; i < N; i++) {
+            if ((visited & (1 << i)) != 0 || map[city][i] == 0) {
+                continue;
+            }
+            dp[city][visited] = Math.min(dp[city][visited],
+                    dfs(i, visited | (1 << i)) + map[city][i]);
 
-		}
+        }
 
-		return dp[city][visited];
-	}
+        return dp[city][visited];
+    }
 }
