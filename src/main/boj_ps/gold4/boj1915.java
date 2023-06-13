@@ -13,6 +13,10 @@ isSquare(length, x, y): boolean
 
 * */
 
+
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,10 +37,11 @@ public class boj1915 {
 
 		arr = new int[N][M];
 		// 정사각형 한 변의 최대 길이 저장
-		answer = 1;
+		answer = 0;
 
 		for (int i = 0; i < N; i++) {
 			String line = br.readLine();
+
 			for (int j = 0; j < M; j++) {
 				arr[i][j] = line.charAt(j) - '0';
 			}
@@ -44,50 +49,13 @@ public class boj1915 {
 
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
-				if (arr[i][j] == 1) {
-					bfs(i, j);
+				if (arr[i][j] != 0 && i > 0 && j > 0) {
+					arr[i][j] = min(min(arr[i - 1][j - 1], arr[i][j - 1]), arr[i - 1][j]) + 1;
 				}
+				answer = max(answer, arr[i][j]);
 			}
 		}
 		//System.out.println(arr);
 		System.out.println(answer * answer);
-
 	}
-
-	// x, y는 정사각형의 가장 오른쪽 아래라고 가정. 이전의 정사각형은 x-1, y-1이다
-	// x, y를 기준으로 가로 왼쪽, 세로 위쪽을 length만큼 확인하면서 1인지 체크하여 정사각형인지 확인하는 함수
-	private static boolean isSquare(int x, int y, int length) {
-		if (x >= N || y >= M) {
-			return false;
-		}
-
-		for (int i = length - 1; i >= 0; i--) {
-			//
-			if (arr[x - i][y] != 1 || arr[x][y - i] != 1) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	private static void bfs(int x, int y) {
-		int len = arr[x][y];
-		int dx = x;
-		int dy = y;
-
-		while (isSquare(dx + 1, dy + 1, len + 1)) {
-
-			for (int i = len - 1; i >= 0; i--) {
-				arr[dx - i][dy + 1] = len + 1;
-				arr[dx + 1][dy - i] = len + 1;
-			}
-
-			len++;
-			dx++;
-			dy++;
-			answer = Math.max(answer, len);
-		}
-	}
-
 }
