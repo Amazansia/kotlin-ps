@@ -29,7 +29,6 @@ fun main() = with(System.`in`.bufferedReader()) {
     for (i in 0 until k2.size) {
         var go: Long = k2[i] * k2[i]
         var temp = min
-//        var idx = if (temp % go == 0L) 0L else go - (temp % go)
         var idx = 0L
         if (temp % go != 0L) idx = go - (temp % go)
 
