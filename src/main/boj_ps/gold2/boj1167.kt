@@ -52,29 +52,4 @@ fun main() = with(System.`in`.bufferedReader()) {
     bfs(1)
     bfs(edge.first)
     println(edge.second)
-
-    /*
-    var maxValue = 0
-    var num = 0
-    var visited = BooleanArray(V + 1)
-    fun dfs(start: Int, dis: Int) {
-        if (maxValue < dis) {
-            maxValue = dis
-            num = start
-        }
-        visited[start] = true
-
-        for (i in tree[start]) {
-            if (!visited[i.first]) {
-                visited[i.first] = true
-                dfs(i.first, dis + i.second)
-            }
-        }
-    }
-
-    dfs(1, 0)
-    visited = BooleanArray(V + 1)
-    dfs(num, 0)
-    println(maxValue)
-    */
 }
