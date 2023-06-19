@@ -8,7 +8,6 @@ package kotlin_.마법의엘리베이터
 1
 989
 1000 - 10 - 1
-
 * */
 
 class Solution {

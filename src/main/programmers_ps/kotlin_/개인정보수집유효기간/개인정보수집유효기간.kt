@@ -1,4 +1,4 @@
-//package kotlin_.개인정보수집유효기간
+package kotlin_.개인정보수집유효기간
 
 class Solution {
     fun solution(today: String, terms: Array<String>, privacies: Array<String>): IntArray {
@@ -25,7 +25,6 @@ class Solution {
         var i = 1
         for (privacy in privacies) {
             var pvlist = privacy.split(" ")
-//            println(pvlist.joinToString(" "))
             if (isExpired(calculateDate(pvlist[0]), pvlist[1])) answer.add(i)
             i++
         }

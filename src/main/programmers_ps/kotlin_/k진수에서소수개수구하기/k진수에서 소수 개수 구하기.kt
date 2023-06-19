@@ -6,9 +6,7 @@ import kotlin.math.sqrt
 해당되는 소수가 중복되더라도 그냥 센다
 k진수로 바꿨을 때 변환된 수 안에 조건에 맞는 수가 얼마나 있는가...
 양의 정수 n이 주어졌을 때 이 수를 k진수로 바꾼다
-
 * */
-
 
 class Solution {
     fun solution(n: Int, k: Int): Int {
