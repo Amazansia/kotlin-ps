@@ -8,7 +8,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     var pq = PriorityQueue<Int>()
 
     for (i in 0 until N) {
-        var (num, start, end) = readLine().split(" ").map { it.toInt() }
+        var (_, start, end) = readLine().split(" ").map { it.toInt() }
         savearr.add(Pair(start, end))
     }
 
