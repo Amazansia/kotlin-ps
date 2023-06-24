@@ -1,5 +1,7 @@
 package gold2
 
+import java.lang.Math.min
+
 
 /*
 N이 100000까지 들어옴
@@ -45,15 +47,31 @@ for(i in 1 .. N)
 1 2 2 4 -> 4
 1 2 2 3 3 4 6 6 9...
 이 수가 B[k]가 될 수 있는가를 판정할 수 있어야 함
-
+걍 다 세버리자
 
 
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
-	var N = readLine().toInt()
-	var k = readLine().toInt()
+    var N = readLine().toInt()
+    var k = readLine().toInt()
 
+    var low = 1L
+    var high = k.toLong()
 
+    while (low < high) {
+        var mid = (low + high) / 2
+        var cnt = 0L
 
+        for (i in 1..N) {
+            cnt += min(mid / i, N.toLong())
+        }
+
+        if (k <= cnt)
+            high = mid
+        else
+            low = mid + 1
+    }
+
+    print(low)
 }
