@@ -1,4 +1,7 @@
 package gold5
+/*
+재귀로 푸는게 나을듯
+* */
 
 fun main() = with(System.`in`.bufferedReader()) {
     var tree = IntArray(10001)
