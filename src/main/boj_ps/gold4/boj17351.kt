@@ -16,7 +16,6 @@ M이 나올 때 갈 수 있는 모든 위치를 고려해서
 시작위치를 무조건 기억해야함
 dfs는 안되나?
 x,y에서 n-1,n-1까지 간다고 하면...
-
  */
 
 fun main() = with(System.`in`.bufferedReader()) {
@@ -26,7 +25,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 		arr[i] = readLine().toCharArray()
 	}
 
-	var dxdy = arrayOf(1 to 0, 1 to 0)
+	var dxdy = arrayOf(0 to 1, 1 to 0)
 
 	var dp = Array(N) { Array(N) { IntArray(4) { -1 } } }
 
@@ -34,11 +33,11 @@ fun main() = with(System.`in`.bufferedReader()) {
 
 //		println("${arr[x][y]} $x $y ${dp[x][y][str]}")
 
-		if (x == N - 1 || y == N - 1) {
-
+		if (x == N - 1 && y == N - 1) {
 //			if (arr[x][y] == 'A' && str == 3) return 1
 			return 0
 		}
+
 
 		if (dp[x][y][str] != -1) {
 			return dp[x][y][str]
@@ -65,12 +64,11 @@ fun main() = with(System.`in`.bufferedReader()) {
 			} else {
 				dp[x][y][str] = max(dp[x][y][str], dfs(dx, dy, 0))
 			}
-
 		}
 		return dp[x][y][str]
 	}
 
 	println(if (arr[0][0] == 'M') dfs(0, 0, 1) else dfs(0, 0, 0))
 
-	println(dp.toString())
+	//println(dp.toString())
 }
