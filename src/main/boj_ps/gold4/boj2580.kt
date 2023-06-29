@@ -31,32 +31,30 @@ fun main() = with(System.`in`.bufferedReader()) {
 
 	var list = mutableListOf<Triple<Int, Int, BooleanArray>>()
 
-	for (i in 0 until 9) {
-		for (j in 0 until 9) {
-			if (board[i][j] == 0)
-			// arr[0] = false, 나머지 true
-				list.add(Triple(i, j, BooleanArray(10) { it != 0 }))
-		}
-	}
+//	for (i in 0 until 9) {
+//		for (j in 0 until 9) {
+//			if (board[i][j] == 0)
+//			// arr[0] = false, 나머지 true
+//				list.add(Triple(i, j, BooleanArray(10) { it != 0 }))
+//		}
+//	}
 
-	fun collectPossibleNum(now: Triple<Int, Int, BooleanArray>) {
+	fun collectPossibleNum(now: Triple<Int, Int, BooleanArray>, bArr: Array<IntArray>) {
 		// 가로 || 세로
 		for (i in 0 until 9) {
-//			println("${board[i][now.second]}")
-			now.third[board[i][now.second]] = false
+			now.third[bArr[i][now.second]] = false
 		}
 
 		for (i in 0 until 9) {
-			now.third[board[now.first][i]] = false
+			now.third[bArr[now.first][i]] = false
 		}
-
 
 		// 3x3 정사각형
 		for (i in 0..2) {
 			for (j in 0..2) {
 				var dx = now.first / 3 * 3 + i
 				var dy = now.second / 3 * 3 + j
-				now.third[board[dx][dy]] = false
+				now.third[bArr[dx][dy]] = false
 			}
 		}
 
@@ -80,40 +78,55 @@ fun main() = with(System.`in`.bufferedReader()) {
 //		}
 //	}
 
+	fun isAllDone(arr: Array<IntArray>): Boolean {
+		for (i in 0 until 9) {
+			for (j in 0 until 9) {
+				if (arr[i][j] == 0) return false
+			}
+		}
+		return true
+	}
+
 	fun backtracking(now: Triple<Int, Int, BooleanArray>, bArr: Array<IntArray>) {
 
+		println("backtracking: ${now.first}, ${now.second}")
 		// 기저조건: 스도쿠 완성
-		if (list.isEmpty()) {
+		if (isAllDone(bArr)) {
+			bArr.forEach {
+				println(it.joinToString(" "))
+			}
 			return
 		}
 
 		// now.first, now.second에서 가능한 숫자 정보 now.third에 저장
-		collectPossibleNum(now)
+		collectPossibleNum(now, bArr)
 
 		for (i in now.third.indices) {
 			// true면 가능한 수, false면 안됨
 			if (now.third[i]) {
 				bArr[now.first][now.second] = now.third.indexOf(true)
-				backtracking(now, bArr)
-				now.third[i] = false
+				// 되는 경우로 다음 칸 채우기 시도
+				for (i in now.first until 9) {
+					for (j in now.second until 9) {
+						if (bArr[i][j] == 0) {
+							backtracking(Triple(i, j, BooleanArray(10) { it != 0 }), bArr)
+							// 안되면 초기화
+							bArr[now.first][now.second] = 0
+							now.third[i] = false
+							break
+						}
+					}
+				}
 			}
 		}
-
 	}
-
-
-	var newArr = Array(9) { IntArray(9) }
 
 	for (i in 0 until 9) {
 		for (j in 0 until 9) {
-			if (board[i][j] == 0)
-				backtracking(Triple(i, j, BooleanArray(10)))
+			if (board[i][j] == 0) {
+				backtracking(Triple(i, j, BooleanArray(10) { it != 0 }), board)
+			}
 		}
 	}
 
-	board.forEach {
-		println(it.joinToString(" "))
-	}
-
-//	println("hi")
 }
