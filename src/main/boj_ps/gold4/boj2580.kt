@@ -1,4 +1,8 @@
-package gold4/*
+package gold4
+
+import kotlin.system.exitProcess
+
+/*
 스도쿠 판을 채워봐라
 빈 칸은 0으로 주어진다.
 스도쿠 판을 채우는 방법이 여럿이면 그 중 하나를 출력하면 된다.
@@ -24,109 +28,57 @@ dfs+벡트래킹(가지치기)
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
-	var board = Array(9) { IntArray(9) }
-	for (i in 0 until 9) {
-		board[i] = readLine().split(" ").map { it.toInt() }.toIntArray()
-	}
+    var board = Array(9) { IntArray(9) }
+    for (i in 0 until 9) {
+        board[i] = readLine().split(" ").map { it.toInt() }.toIntArray()
+    }
 
-	var list = mutableListOf<Triple<Int, Int, BooleanArray>>()
+    var list = mutableListOf<Triple<Int, Int, BooleanArray>>()
 
-//	for (i in 0 until 9) {
-//		for (j in 0 until 9) {
-//			if (board[i][j] == 0)
-//			// arr[0] = false, 나머지 true
-//				list.add(Triple(i, j, BooleanArray(10) { it != 0 }))
-//		}
-//	}
+    for (i in 0 until 9) {
+        for (j in 0 until 9) {
+            if (board[i][j] == 0) list.add(Triple(i, j, BooleanArray(10) { it != 0 }))
+        }
+    }
 
-	fun collectPossibleNum(now: Triple<Int, Int, BooleanArray>, bArr: Array<IntArray>) {
-		// 가로 || 세로
-		for (i in 0 until 9) {
-			now.third[bArr[i][now.second]] = false
-		}
+    fun check(x: Int, y: Int, n: Int): Boolean {
+        // 가로 || 세로
+        for (i in 0 until 9) {
+            if (board[x][i] == n || board[i][y] == n) return false
+        }
 
-		for (i in 0 until 9) {
-			now.third[bArr[now.first][i]] = false
-		}
+        // 3x3 정사각형
+        for (i in x / 3 * 3..x / 3 * 3 + 2) {
+            for (j in y / 3 * 3..y / 3 * 3 + 2) {
+                if (board[i][j] == n) return false
+            }
+        }
 
-		// 3x3 정사각형
-		for (i in 0..2) {
-			for (j in 0..2) {
-				var dx = now.first / 3 * 3 + i
-				var dy = now.second / 3 * 3 + j
-				now.third[bArr[dx][dy]] = false
-			}
-		}
+        return true
+    }
 
-		now.third[0] = false
-	}
 
-	// booleanArray에서 가능한 수는 true, 불가능한 수는 false
-//	while (list.size > 0) {
-//		var removelist = mutableListOf<Triple<Int, Int, BooleanArray>>()
-//		for (i in list) {
-//			i.third.fill(true)
-//			i.third[0] = false
-//			collectPossibleNum(i)
-//			if (i.third.count { it } == 1) {
-//				removelist.add(i)
-//			}
-//		}
-//		removelist.forEach {
-//			list.remove(it)
-//			board[it.first][it.second] = it.third.lastIndexOf(true)
-//		}
-//	}
+    fun backtracking(cnt: Int) {
 
-	fun isAllDone(arr: Array<IntArray>): Boolean {
-		for (i in 0 until 9) {
-			for (j in 0 until 9) {
-				if (arr[i][j] == 0) return false
-			}
-		}
-		return true
-	}
+        if (cnt == list.size) {
+            board.forEach {
+                println(it.joinToString(" "))
+            }
+            exitProcess(0)
+        }
 
-	fun backtracking(now: Triple<Int, Int, BooleanArray>, bArr: Array<IntArray>) {
 
-		println("backtracking: ${now.first}, ${now.second}")
-		// 기저조건: 스도쿠 완성
-		if (isAllDone(bArr)) {
-			bArr.forEach {
-				println(it.joinToString(" "))
-			}
-			return
-		}
+        for (i in 1..9) {
+            if (check(list[cnt].first, list[cnt].second, i)) {
+                // 채우기 시도
+                board[list[cnt].first][list[cnt].second] = i
+                // 일단 가보기
+                backtracking(cnt + 1)
+                // 안되면 돌아와서 초기화
+                board[list[cnt].first][list[cnt].second] = 0
+            }
+        }
+    }
 
-		// now.first, now.second에서 가능한 숫자 정보 now.third에 저장
-		collectPossibleNum(now, bArr)
-
-		for (i in now.third.indices) {
-			// true면 가능한 수, false면 안됨
-			if (now.third[i]) {
-				bArr[now.first][now.second] = now.third.indexOf(true)
-				// 되는 경우로 다음 칸 채우기 시도
-				for (i in now.first until 9) {
-					for (j in now.second until 9) {
-						if (bArr[i][j] == 0) {
-							backtracking(Triple(i, j, BooleanArray(10) { it != 0 }), bArr)
-							// 안되면 초기화
-							bArr[now.first][now.second] = 0
-							now.third[i] = false
-							break
-						}
-					}
-				}
-			}
-		}
-	}
-
-	for (i in 0 until 9) {
-		for (j in 0 until 9) {
-			if (board[i][j] == 0) {
-				backtracking(Triple(i, j, BooleanArray(10) { it != 0 }), board)
-			}
-		}
-	}
-
+    backtracking(0)
 }
