@@ -24,7 +24,6 @@ dfs로... 브루트포스?
 
 dfs+벡트래킹(가지치기)
 들어갈 수 있는 경우의 수를 dfs로 고려한다
-
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
@@ -57,7 +56,6 @@ fun main() = with(System.`in`.bufferedReader()) {
         return true
     }
 
-
     fun backtracking(cnt: Int) {
 
         if (cnt == list.size) {
@@ -66,7 +64,6 @@ fun main() = with(System.`in`.bufferedReader()) {
             }
             exitProcess(0)
         }
-
 
         for (i in 1..9) {
             if (check(list[cnt].first, list[cnt].second, i)) {

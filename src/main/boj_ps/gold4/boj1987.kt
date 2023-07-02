@@ -50,6 +50,9 @@ fun main() = with(System.`in`.bufferedReader()) {
 		}
 	}
 
+	alphabet[board[0][0] - 'A'] = true
+	visited[0][0] = true
+
 	dfs(0, 0 to 0, alphabet, visited)
 	println(answer)
 

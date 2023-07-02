@@ -1,7 +1,6 @@
 package gold5
 
 import kotlin.math.*
-import kotlin.text.StringBuilder
 
 /*
 고장나지 않은 버튼으로 리모콘을 눌러서 원하는 채널로 이동하는 최소 횟수
