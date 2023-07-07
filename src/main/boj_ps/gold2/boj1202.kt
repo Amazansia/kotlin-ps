@@ -26,7 +26,7 @@ answer은 long으로 설정
 이진트리형 정렬?
 큐쓰면 될듯
 이 적절한 자리를...찾는게 문제다
-
+큐쓰면되는거맞어?????
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
