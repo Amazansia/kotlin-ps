@@ -27,22 +27,42 @@ answer은 long으로 설정
 큐쓰면 될듯
 이 적절한 자리를...찾는게 문제다
 큐쓰면되는거맞어?????
+while
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
     var (N, K) = readLine().split(" ").map { it.toInt() }
 
     // 보석 정보 저장
-    var jewels = PriorityQueue<Pair<Int, Int>> { o1, o2 -> o1.first - o2.first }
+    var jewels = Array(N) { Pair(0, 0) }
     for (i in 0 until N) {
-        jewels.add(readLine().split(" ").map { it.toInt() }.let { it[0] to it[1] })
+        jewels[i] = readLine().split(" ").map { it.toInt() }.let { it[0] to it[1] }
     }
 
+    jewels.sortWith(compareBy<Pair<Int, Int>> { it.first }.thenByDescending { it.second })
+
     // 가방 정보 저장
-    var bags = PriorityQueue<Int>()
+    var bags = IntArray(K)
     for (i in 0 until K) {
-        bags.add(readLine().toInt())
+        bags[i] = readLine().toInt()
     }
+
+    bags.sort()
+
+    var pq = PriorityQueue<Int>(Comparator.reverseOrder())
+
+    var answer = 0L
+    var temp = 0
+    for (i in 0 until K) {
+        while (temp < N && jewels[temp].first <= bags[i]) {
+            pq.offer(jewels[temp++].second)
+        }
+        if (!pq.isEmpty()) {
+            answer += pq.poll().toLong()
+        }
+    }
+
+    println(answer)
 
 
 }
