@@ -1,114 +1,38 @@
-package silver3
-
-/*
-dfs?
-3자리가 전부니까 100~999까지 해도 최대 900번 돈다
-완탐도 가능...
-
-* */
 fun main() = with(System.`in`.bufferedReader()) {
 	var N = readLine().toInt()
 	var infos = Array(N) { IntArray(3) }
+
 	for (i in 0 until N) {
 		infos[i] = readLine().split(" ").map { it.toInt() }.toIntArray()
 	}
 
-	var answer = BooleanArray(1000)
+	var answer = IntArray(1000)
 
-	for (info in infos) {
-		var num = info[0].toString()
-			.let { Triple(it[0].digitToInt(), it[1].digitToInt(), it[2].digitToInt()) }
+	// 몇개의 숫자가 일치하는지, 몇 자리가 일치하는지 알 수 있다면 모든 경우를 고려할 수 있다
+	fun check(num: Int, strike: Int, ball: Int) {
+		var n = num.toString().toCharArray()
 
-		// 스트라이크에 따른 숫자 후보 저장
-		if (info[1] == 1) {
-			for (i in 100..999) {
-				var t = i.toString()
-					.let { Triple(it[0].digitToInt(), it[1].digitToInt(), it[2].digitToInt()) }
-
-				if (t.first == num.first || t.second == num.second || t.third == num.third
-					&& !answer[i]
-				) answer[i] = true
+		for (i in 100..999) {
+			var sCnt = 0
+			var bCnt = 0
+			var ii = i.toString().toCharArray()
+			for (k in ii.indices) {
+				if (n[k] == ii[k]) sCnt++
+				if (n.contains(ii[k])) bCnt++
 			}
-		} else if (info[1] == 2) {
-			for (i in 100..999) {
-				var t = i.toString()
-					.let { Triple(it[0].digitToInt(), it[1].digitToInt(), it[2].digitToInt()) }
-
-				// 12 & 23 & 13
-				if (t.first == num.first && t.second == num.second
-					|| t.third == num.third && t.second == num.second
-					|| t.first == num.first && t.third == num.third
-					&& !answer[i]
-				) answer[i] = true
-			}
-		} else if (info[1] == 3) {
-			println(1)
-			return@with
+			// 자리가 일치하지 않으면서 볼인 경우
+			var bc = bCnt - sCnt
+			if (sCnt == strike && bc == ball
+				&& ii[0] != ii[1]  && ii[0] != ii[2] && ii[1] != ii[2]
+				&& !ii.contains('0'))
+				answer[i]++
 		}
 
-		// 볼에 따른 숫자 후보 저장
-		if (info[2] == 1) {
-			for (i in 100..999) {
-				var t = i.toString()
-
-				if (t.contains(num.first.toChar())
-					&& !t.contains(num.second.toChar())
-					&& !t.contains(num.third.toChar())
-					&& !answer[i]
-				) answer[i] = true
-				if (t.contains(num.second.toChar())
-					&& !t.contains(num.first.toChar())
-					&& !t.contains(num.third.toChar())
-					&& !answer[i]
-				) answer[i] = true
-				if (t.contains(num.third.toChar())
-					&& !t.contains(num.second.toChar())
-					&& !t.contains(num.first.toChar())
-					&& !answer[i]
-				) answer[i] = true
-			}
-		} else if (info[2] == 2) {
-			for (i in 100..999) {
-				var t = i.toString()
-
-				if (!t.contains(num.first.toChar())
-					&& t.contains(num.second.toChar())
-					&& t.contains(num.third.toChar())
-					&& !answer[i]
-				) answer[i] = true
-				if (!t.contains(num.second.toChar())
-					&& t.contains(num.first.toChar())
-					&& t.contains(num.third.toChar())
-					&& !answer[i]
-				) answer[i] = true
-				if (!t.contains(num.third.toChar())
-					&& t.contains(num.second.toChar())
-					&& t.contains(num.first.toChar())
-					&& !answer[i]
-				) answer[i] = true
-			}
-		} else if (info[2] == 3){
-			for (i in 100..999) {
-				var t = i.toString()
-
-				if (t.contains(num.first.toChar())
-					&& t.contains(num.second.toChar())
-					&& t.contains(num.third.toChar())
-					&& !answer[i]
-				) answer[i] = true
-			}
-		}
-		else if(info[2] == 0){
-			for (i in 100..999) {
-				var t = i.toString()
-
-				if (t.contains(num.first.toChar())
-					|| t.contains(num.second.toChar())
-					|| t.contains(num.third.toChar())
-				) answer[i] = false
-			}
-		}
 	}
 
-	println(answer.filterIndexed { index, it -> index in 100 .. 999 && it }.count())
+	for (info in infos) {
+		check(info[0], info[1], info[2])
+	}
+
+	println(answer.filterIndexed { index, i -> index in 100..999 && i == N }.count())
 }
