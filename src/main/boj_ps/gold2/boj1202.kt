@@ -28,6 +28,11 @@ answer은 long으로 설정
 이 적절한 자리를...찾는게 문제다
 큐쓰면되는거맞어?????
 while
+보석을 가벼운 것부터 & 가격이 비싼 것부터 일단 담는다
+가방 무게 기준으로 정렬
+가벼운 것부터~A라는 가방의 마지노선까지
+가격이 비싼 보석
+우선순위 큐: 가격이 비싼 것부터 먼저 나오게
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
@@ -52,10 +57,10 @@ fun main() = with(System.`in`.bufferedReader()) {
     var pq = PriorityQueue<Int>(Comparator.reverseOrder())
 
     var answer = 0L
-    var temp = 0
+    var idx = 0
     for (i in 0 until K) {
-        while (temp < N && jewels[temp].first <= bags[i]) {
-            pq.offer(jewels[temp++].second)
+        while (idx < N && jewels[idx].first <= bags[i]) {
+            pq.offer(jewels[idx++].second)
         }
         if (!pq.isEmpty()) {
             answer += pq.poll().toLong()
@@ -63,6 +68,4 @@ fun main() = with(System.`in`.bufferedReader()) {
     }
 
     println(answer)
-
-
 }
