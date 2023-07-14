@@ -12,24 +12,38 @@ n 백만개들어옴
 될듯
 정렬함하고
 s / e 쓰면서
+
 */
 
 fun main() = with(System.`in`.bufferedReader()) {
-    var str = readLine()
+
 
     fun solve(str: String) {
+        //  200000000
         var X = str.toInt() * 10000000
         var N = readLine().toInt()
-        var arr = IntArray(N)
+        var arr = BooleanArray(X)
+
         for (i in 0 until N) {
-            arr[i] = readLine().toInt()
+            var num = readLine().toInt()
+            if (num >= X) continue
+            arr[num] = true
         }
 
-
+        for (i in 0..X / 2) {
+            if (arr[i] && arr[X - i]) {
+                println("yes $i ${X - i}")
+                return
+            }
+        }
+        println("danger")
     }
-    if (str.isNullOrEmpty()) {
-        solve(str)
 
+    var str = readLine()
+
+    while (!str.isNullOrEmpty()) {
+        solve(str)
         str = readLine()
     }
+
 }
