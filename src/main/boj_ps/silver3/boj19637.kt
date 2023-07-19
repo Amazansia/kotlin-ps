@@ -21,14 +21,22 @@ fun main() = with(System.`in`.bufferedReader()) {
 	// 역순으로 가져오기
 
 	// 10 9 8 7 6 5...key = 8이면
-	var keySet = title.keys.reversed()
+	var keySet = title.keys.toList()
 
 	fun getTitle(num: Int): String {
-		var answer = title[title.lastKey()]
+		var answer = title[title.firstKey()]
 
-		for (key in keySet) {
-			if (key < num) break
-			answer = title[key]
+		var l = 0
+		var r = keySet.size
+
+		while (l <= r) {
+			var idx = (l + r) / 2
+			if (keySet[idx] < num) {
+				l = idx + 1
+			} else {
+				answer = title[keySet[idx]]
+				r = idx - 1
+			}
 		}
 
 		return answer ?: ""
