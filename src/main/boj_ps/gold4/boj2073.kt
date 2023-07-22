@@ -1,5 +1,8 @@
 package gold4
 
+import kotlin.math.max
+import kotlin.math.min
+
 /*
 길이 / 용량
 파이프 용량의 최솟값이 수도관의 용량
@@ -21,7 +24,7 @@ A는 N번째 파이프를 뺀 나머지 N-1개의 파이프 중 최적으로 고
 2. 집합 A가 N번째 파이프를 포함한다면,
 A에 속한 최대 파이프 용량은 min(N-1개의 파이프 중 최적으로 고른 용량, N번째 파이프의 용량)이다.
 
-dp[i][j]: i개의 파이프가 있고 길이가 j일 때 최대 용량
+dp[i][j]: i개의 파이프가 있고 길이가 j일 때 최대 용량?
 
 i번째 파이프의 길이가 D보다 크면 포함시킬 수 없다:
 i번째 파이프를 뺀 i-1개의 파이프를 가지고 구한 전 단계의 최대 용량을 그대로 가져온다
@@ -31,56 +34,88 @@ i번째 파이프를 포함하여 전체 파이프 용량을 고려했을 때의
 or i-1개의 파이프를 가지고 구한 전 단계의 최대 용량 중 큰 값을 선택한다.
 
 뭔솔? 개어렵
-
-booleanArray 써야할거같은데
-
  */
 
 fun main() = with(System.`in`.bufferedReader()) {
     var (D, P) = readLine().split(" ").map { it.toInt() }
     // 파이프 정보 저장
     var pipes = Array(P) { 0 to 0 }
-    var dp = Array(D + 1) { BooleanArray(P) }
+//    var dp = Array(D + 1) { BooleanArray(P) }
+    var dp = IntArray(D + 1)
+
 
     for (i in 0 until P) {
         pipes[i] = readLine().split(" ").map { it.toInt() }.let { it[0] to it[1] }
     }
 
-    // booleanArray에서 합계 구하기
-    fun BooleanArray.sum(): Int {
-        var sum = 0
-        forEachIndexed { idx, b -> if (b) sum += pipes[idx].first }
-        return sum
-    }
+//    // booleanArray에서 합계 구하기
+//    fun BooleanArray.sum(): Int {
+//        var sum = 0
+//        forEachIndexed { idx, b -> if (b) sum += pipes[idx].first }
+//        return sum
+//    }
+//
+//    fun BooleanArray.min(): Int {
+//        var answer = Int.MAX_VALUE
+//        forEachIndexed { idx, b -> if (b) answer = kotlin.math.min(answer, pipes[idx].second) }
+//        return answer
+//    }
+//
+//    pipes.sortWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
+//
+//    for (i in 0 until P) {
+//        dp[pipes[i].first][i] = true
+//    }
+//    for (i in 0 until P) {
+//        for (j in 0 until D + 1) {
+//            // dp[j]에서 i번째 파이프 쓰는지 체크, 안쓰면 진행
+//            var sum = dp[j].sum()
+//            if (dp[j][i]) continue
+//            // idx 범위체크
+//            if (D < pipes[i].first + sum) continue
+//            if (sum == 0) continue
+//
+//            if (dp[j].min() <= pipes[i].second) {
+//                dp[pipes[i].first + sum] = dp[j]
+//            }
+//        }
+//    }
 
-    fun BooleanArray.min(): Int {
-        var answer = Int.MAX_VALUE
-        forEachIndexed { idx, b -> if (b) answer = kotlin.math.min(answer, pipes[idx].second) }
-        return answer
-    }
+    // 길이 총합이 정확히 D가 되는 파이프 조합...
+    // D 이상이면 고려할 필요 없음?
+    // 가장 큰 용량부터 더해주기...
+    // dp[i][j]: 총길이 합이 i인, j번째 파이프를 포함한 ..안돼 IntArray 2차원은 안됨
+    // BooleanArray 2차원은 가능함
+    // dp[i]: 총길이 합이 i인 파이프 조합에서 가장 작은 수도관 용량
+    // dp[10] = min(pipes[i].first==0~10, dp[10~0])
+    // dp[N] = min(pipes[i].second, dp[N-pipes[i].first])
+
+//    for (i in 0 until P) {
+//        dp[pipes[i].first] = max(dp[pipes[i].first], pipes[i].second)
+//    }
 
     pipes.sortWith(compareBy<Pair<Int, Int>> { it.first }.thenBy { it.second })
 
-    for (i in 0 until P) {
-        dp[pipes[i].first][i] = true
-    }
+    /*
+    dp라고 생각해보자..
+    dp[i] = max(dp[i], min(pipes[].second, dp[i - pipes[].first])
+    일 때...
+
+    * */
 
     for (i in 0 until P) {
+        println("$i; ${pipes[i]}")
         for (j in 0 until D + 1) {
-            // dp[j]에서 i번째 파이프 쓰는지 체크, 안쓰면 진행
-            if (dp[j][i]) continue
-            // idx 범위체크
-            if (D < pipes[i].first + dp[j].sum()) continue
-            if (dp[j].sum() == 0) continue
-
-            if (dp[j].min() <= pipes[i].second) {
-                dp[j][i] = true
-                dp[pipes[i].first + dp[j].sum()] = dp[j]
+            if (j == pipes[i].first && dp[j] == 0) {
+                dp[j] = pipes[i].second
+                continue
             }
+            if (j - pipes[i].first < 0 || dp[j - pipes[i].first] == 0) continue
+            dp[j] = max(dp[j], min(pipes[i].second, dp[j - pipes[i].first]))
+            println("dp[$j] = max(${dp[j]}, min(${pipes[i].second}, dp[${j - pipes[i].first}] = ${dp[j - pipes[i].first]}) = ${dp[j]}")
         }
+        println()
     }
-
-
 
     println(dp[D])
 }
