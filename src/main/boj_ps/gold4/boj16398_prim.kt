@@ -51,14 +51,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 
 // prim algorithm
 // 우선순위 큐(최소힙) 구현, E log N
-class Node : Comparable<Node> {
-    var w: Int = 0
-    var cost: Int = 0
-
-    constructor(w: Int, cost: Int) {
-        this.w = w
-        this.cost = cost
-    }
+class Node(var w: Int, var cost: Int) : Comparable<Node> {
 
     override fun compareTo(other: Node): Int {
         return this.cost - other.cost
