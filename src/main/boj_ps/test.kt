@@ -1,47 +1,49 @@
-import kotlin.system.measureTimeMillis
+import kotlin.math.*
 
-class IntArrayWrapper(private val array: IntArray) {
-
-	override fun equals(other: Any?): Boolean {
-		if (this === other) return true
-		if (other !is IntArrayWrapper) return false
-
-		return array.contentEquals(other.array)
-	}
-
-	override fun hashCode(): Int {
-		return array.contentHashCode()
-	}
-}
-
-fun main() {
-	val N = 10000000
-	val setWrapperArray = HashSet<IntArrayWrapper>()
-	val setOriginList = HashSet<List<Int>>()
-
-	// IntArray WrapperClass, set에 N개의 원소 추가하기
-	val timeWrapperArray = measureTimeMillis {
-		for (i in 0 until N) {
-			setWrapperArray.add(IntArrayWrapper(intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
+fun main() = with(System.`in`.bufferedReader()) {
+	var array = arrayOf(1, 6, 4, 5, 2, 3, 4, 5)
+	var length = IntArray(8)
+	for (i in array.indices) {
+		length[i] = 1
+		for (j in 0 until i) {
+			if (array[j] < array[i]) length[i] = max(length[i], length[i] + 1)
 		}
 	}
-	println(setWrapperArray.size)
-	println("IntArrayWrapper = $timeWrapperArray")
 
-	val timeOriginList = measureTimeMillis {
-		for (i in 0 until N) {
-			setOriginList.add(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+	var LIS = IntArray(8)
+
+	fun binarySearch(start: Int, end: Int, num: Int): Int {
+		var s = start
+		var e = end
+
+		while (s < e) {
+			var mid = (s + e) / 2
+			if (LIS[mid] < num) {
+				s = mid + 1
+			} else
+				e = mid
+		}
+
+		return e
+	}
+
+	var idx = 0
+	LIS[0] = array[0]
+
+	var record = IntArray(8)
+
+	for (i in array.indices) {
+		if (LIS[idx] < array[i]) {
+			LIS[++idx] = array[i]
+			record[idx] = i
+		} else {
+			var bsIdx = binarySearch(0, idx, array[i])
+			LIS[bsIdx] = array[i]
+			record[bsIdx] = i
 		}
 	}
-	println(setOriginList.size)
-	println("List<Int> = $timeOriginList")
 
-	var list = mutableListOf<List<Int>>()
-	val timeOriginListAdd = measureTimeMillis {
-		for (i in 0 until N) {
-			list.add(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-		}
+	for (i in 0 .. idx) {
+		println(array[record[i]])
 	}
-	println(list.size)
-	println("List<Int> mutableList Add = $timeOriginListAdd")
 }
