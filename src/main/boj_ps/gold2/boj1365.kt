@@ -9,10 +9,12 @@ package gold2
 근데 오름차순 확인만 하면 되니까 상관없지 않을까?
 4 3 2 1은?
 안될듯
-최장...부분수열
+최장 증가 부분수열
 10만
 ?
 ?
+
+1 4
 N^2으로 안됨...NlogN인디
 * */
 
@@ -24,8 +26,6 @@ fun main() = with(System.`in`.bufferedReader()) {
     // 이탐으로 LIS?
     // 이런거 첨봄...
     var lis = IntArray(N + 1)
-
-    var answer = 0
 
     fun lowerBound(num: Int, left: Int, right: Int): Int {
         var mid = 0
