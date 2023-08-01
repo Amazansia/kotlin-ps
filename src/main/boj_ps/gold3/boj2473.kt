@@ -1,5 +1,7 @@
 package gold3
 
+import kotlin.math.abs
+
 /*
 한번정렬하고
 0~N-1까지 순회(N):
@@ -8,16 +10,35 @@ package gold3
 * */
 fun main() = with(System.`in`.bufferedReader()) {
     var N = readLine().toInt()
-    var arr = readLine().split(" ").map { it.toInt() }.toIntArray()
+    var arr = readLine().split(" ").map { it.toLong() }.toLongArray()
 
-    var answer = Triple(arr[0], arr[1], arr[2])
+    arr.sort()
+//    println(arr.joinToString(" "))
+    var now = Long.MAX_VALUE
+    var answer = Triple(0L, 0L, 0L)
 
-    for (i in arr) {
-        var sum = i
-        var l = 0
+    for (i in arr.indices) {
+
+        var l = i + 1
         var r = arr.size - 1
-        while (l < r) {
+//        println(now)
 
+        while (l < r) {
+            var sum = arr[l] + arr[r] + arr[i]
+            if (abs(sum) < abs(now)) {
+                now = abs(sum)
+                answer = listOf(arr[i], arr[r], arr[l]).sorted().let { Triple(it[0], it[1], it[2]) }
+            }
+            if (sum >= 0) {
+                r--
+            } else {
+                l++
+            }
+
+//            println("i = $i, l = $l, r = $r, answer = ${answer.first + answer.second + answer.third}")
+//            println(abs(arr[l] + arr[r] + arr[i]))
         }
     }
+
+    println(answer.toList().joinToString(" "))
 }
