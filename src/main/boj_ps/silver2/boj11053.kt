@@ -11,9 +11,14 @@ fun main() = with(System.`in`.bufferedReader()) {
 
     // 1 6 4 5 2 3 5 7 9 8
     /*
+    1 2 3 5 7 9
+    1
     1 6
     1 4
     1 4 5
+    1 2 5
+    //
+
 
     * */
 
