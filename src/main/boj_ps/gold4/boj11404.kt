@@ -10,7 +10,6 @@ fun main() = with(System.`in`.bufferedReader()) {
     for (i in 0 until M) {
         var str = readLine().split(" ").map { it.toInt() }
         bus[str[0]][str[1]] = min(bus[str[0]][str[1]], str[2])
-//        bus[str[1]][str[0]] = min(bus[str[1]][str[0]], str[2])
     }
 
     for (i in 1..N) {
