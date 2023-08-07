@@ -94,7 +94,7 @@ fun main() = with(System.`in`.bufferedReader()) {
             tset.add(arr[dx][dy])
             sum += setlist[arr[dx][dy]] ?: 0
         }
-        return sum
+        return sum % 10
     }
 
     for (i in 0 until N) {
