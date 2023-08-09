@@ -1,6 +1,6 @@
 package gold1
 
-import kotlin.math.*
+import kotlin.math.min
 
 /*
 분할 개수의 최솟값 출력
@@ -24,8 +24,7 @@ dp :1211111
 
 dp[i]: i번째 원소까지 고려했을 때 펠린드롬 분할의 최솟값
 	for(i in 0 until N) dp[i] = min(dp[i], dp[i-len[i]])
-* */
-/*
+
 펠린드롬 분할 문자열 길이가 짝수일 경우에는 판별을 못함 ㅎ;
 len[s] = e
 s부터 시작, 가장 멀리 갈 때의 idx값 e인 펠린드롬 분할 문자열
@@ -51,31 +50,30 @@ for i in 0 until N
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
-	var str = readLine()
-	var len = str.length
+    var str = readLine()
+    var len = str.length
 
-	fun isPalindrome(start: Int, end: Int): Boolean {
-		if (start == end) return true
-		var num = (end - start) / 2
-		for (i in 0..num) {
-			if (str[start + i] != str[end - i]) return false
-		}
-		return true
-	}
+    fun isPalindrome(start: Int, end: Int): Boolean {
+        if (start == end) return true
+        var num = (end - start) / 2
+        for (i in 0..num) {
+            if (str[start + i] != str[end - i]) return false
+        }
+        return true
+    }
 
-	var dp = IntArray(len) { it + 1 }
+    var dp = IntArray(len) { it + 1 }
 
-	for (i in 0 until len) {
-		for (j in 0..i) {
-
-			if (isPalindrome(j, i)) {
-				if (j == 0) {
-					dp[i] = 1
-					continue
-				}
-				dp[i] = min(dp[i], dp[j - 1] + 1)
-			}
-		}
-	}
-	println(dp[len - 1])
+    for (i in 0 until len) {
+        for (j in 0..i) {
+            if (isPalindrome(j, i)) {
+                if (j == 0) {
+                    dp[i] = 1
+                    continue
+                }
+                dp[i] = min(dp[i], dp[j - 1] + 1)
+            }
+        }
+    }
+    println(dp[len - 1])
 }

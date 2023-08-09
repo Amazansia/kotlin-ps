@@ -14,6 +14,14 @@ import java.util.*
 BFS
 각 칸마다 이동가능한 칸의 개수를 dp로 저장해서 풀 수 있을까 -> 안됨 상하좌우 겹칠수있어서 중복될수도
 그냥 쌩으로 탐색해야할듯...
+888
+818
+888
+
+20001 20001 20001
+20001   1   20001
+20001 20001 20001
+집합번호, 0의 개수
 
 쌩탐색 시초 ㅎ
 맨처음에 for돌면서
@@ -25,6 +33,7 @@ mutableList<Pair<Int, Int>>로 한 덩어리로 묶이는 0의 집합 순서, �
 
 fun main() = with(System.`in`.bufferedReader()) {
     var (N, M) = readLine().split(" ").map { it.toInt() }
+
     var arr = Array(N) { IntArray(M) }
     for (i in 0 until N) {
         var str = readLine()
@@ -33,6 +42,7 @@ fun main() = with(System.`in`.bufferedReader()) {
         }
     }
 
+    // setidx, 0의 개수
     var setlist = HashMap<Int, Int>()
 
     val dxdy = arrayOf(1 to 0, 0 to 1, -1 to 0, 0 to -1)
