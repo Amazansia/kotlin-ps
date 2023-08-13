@@ -17,20 +17,6 @@ fun main() = with(System.`in`.bufferedReader()) {
         arrA.sort()
         arrB.sort()
 
-//        println()
-//        println(arrA.joinToString())
-//        println(arrB.joinToString())
-        /*
-
-        1 3 7 8
-        1 3 6
-
-        1 - 0
-        3 - 1
-        7 - 3
-        8 - 3
-        * */
-
         /* arrB[mid]가 처음으로 arrA[idx]보다 크거나 같아지는 mid값을 리턴하는 함수 */
         fun getPreyCount(idx: Int): Int {
             var l = 0
@@ -38,7 +24,7 @@ fun main() = with(System.`in`.bufferedReader()) {
             var res = 0
             while (l <= r && l in arrB.indices && r in arrB.indices) {
                 var mid = (l + r) / 2
-//                println(mid)
+
                 if (arrB[mid] < arrA[idx]) {
                     l = mid + 1
                     res = l
@@ -46,7 +32,6 @@ fun main() = with(System.`in`.bufferedReader()) {
                     r = mid - 1
                 }
             }
-//            println("l:$l, r:$r, mid:$mid")
             return res
         }
 
