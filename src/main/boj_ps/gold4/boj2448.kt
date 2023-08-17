@@ -21,7 +21,6 @@ fun main() {
     var answer = Array(N) { CharArray(5 * N / 3 + N / 3 - 1) { ' ' } }
 
     fun drawingTriangleByLocation(x: Int, y: Int) {
-
         answer[x][y + 2] = '*'
         answer[x + 1][y + 1] = '*'
         answer[x + 1][y + 3] = '*'

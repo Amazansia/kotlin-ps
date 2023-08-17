@@ -14,7 +14,6 @@ fun main() = with(System.`in`.bufferedReader()) {
         var (N, M) = readLine().split(" ").map { it.toInt() }
         var arrA = readLine().split(" ").map { it.toInt() }.toIntArray()
         var arrB = readLine().split(" ").map { it.toInt() }.toIntArray()
-        arrA.sort()
         arrB.sort()
 
         /* arrB[mid]가 처음으로 arrA[idx]보다 크거나 같아지는 mid값을 리턴하는 함수 */
