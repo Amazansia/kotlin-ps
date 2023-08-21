@@ -16,7 +16,6 @@ fun main() = with(System.`in`.bufferedReader()) {
 
     var dp = Array(101) { Array(10) { LongArray(visit) } }
 
-
     var sum = 0L
 
     for (i in 1 until 10) {
@@ -27,7 +26,7 @@ fun main() = with(System.`in`.bufferedReader()) {
             for (k in 0 until visit) {
                 var bit = k or (1 shl j)
                 dp[i][j][bit] =
-                    (dp[i][j][bit] + (if (0 < j) dp[i - 1][j - 1][k] else 0 + if (j < 9) dp[i - 1][j + 1][k] else 0) % MOD) % MOD
+                    (dp[i][j][bit] + ((if (0 < j) dp[i - 1][j - 1][k] else 0) + (if (j < 9) dp[i - 1][j + 1][k] else 0)) % MOD) % MOD
             }
         }
     }
