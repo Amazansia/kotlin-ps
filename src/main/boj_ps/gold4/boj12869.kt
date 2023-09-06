@@ -30,7 +30,7 @@ dfs 써야함
 
 
 3
-60 60 60
+60 0 0
 
 51 57 59
 50 54 50
@@ -53,40 +53,40 @@ dfs 써야함
 for문돌려서 바텀업하든가
 재귀돌려서 탑다운하든가
 탑다운이 맞는듯(음수체크때문에)
-dp[][][] : i,j,k의 체력을 가진 뮤탈리스크를 모두 파괴하는 데 필요한 최소횟수
-dp[i+9][i+3][k+1] = min(dp[i+9][i+3][k+1], dp[i][j][k] + 1)
+dp[i][j][k] : i,j,k의 체력을 가진 뮤탈리스크를 모두 파괴하는 데 필요한 최소횟수
+dp[i+9][j+3][k+1] = min(dp[i+9][i+3][k+1], dp[i][j][k] + 1)
 바꿔보면
 dp[i][j][k] = min(dp[i-9][j-3][k-1]...(6가지 경우) + 1, dp[i][j][k])
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
-	var N = readln().toInt()
-	var arr = readLine().split(" ").map { it.toInt() }.toIntArray()
+    var N = readln().toInt()
+    var arr = readLine().split(" ").map { it.toInt() }.toIntArray()
 
-	var dp = Array(61) { Array(61) { IntArray(61) { 20 } } }
+    var dp = Array(61) { Array(61) { IntArray(61) { 20 } } }
 
-	fun lowerbound(n1: Int, n2: Int, n3: Int): Int {
-		var i = if (n1 < 0) 0 else n1
-		var j = if (n2 < 0) 0 else n2
-		var k = if (n3 < 0) 0 else n3
+    fun lowerbound(n1: Int, n2: Int, n3: Int): Int {
+        var i = if (n1 < 0) 0 else n1
+        var j = if (n2 < 0) 0 else n2
+        var k = if (n3 < 0) 0 else n3
 
-		return dp[i][j][k]
-	}
+        return dp[i][j][k]
+    }
 
-	dp[0][0][0] = 0
+    dp[0][0][0] = 0
 
-	for (i in 0 until 61) {
-		for (j in 0 until 61) {
-			for (k in 0 until 61) {
-				dp[i][j][k] = min(lowerbound(i - 9, j - 3, k - 1) + 1, dp[i][j][k])
-				dp[i][j][k] = min(lowerbound(i - 9, j - 1, k - 3) + 1, dp[i][j][k])
-				dp[i][j][k] = min(lowerbound(i - 3, j - 9, k - 1) + 1, dp[i][j][k])
-				dp[i][j][k] = min(lowerbound(i - 3, j - 1, k - 9) + 1, dp[i][j][k])
-				dp[i][j][k] = min(lowerbound(i - 1, j - 9, k - 3) + 1, dp[i][j][k])
-				dp[i][j][k] = min(lowerbound(i - 1, j - 3, k - 9) + 1, dp[i][j][k])
-			}
-		}
-	}
+    for (i in 0 until 61) {
+        for (j in 0 until 61) {
+            for (k in 0 until 61) {
+                dp[i][j][k] = min(lowerbound(i - 9, j - 3, k - 1) + 1, dp[i][j][k])
+                dp[i][j][k] = min(lowerbound(i - 9, j - 1, k - 3) + 1, dp[i][j][k])
+                dp[i][j][k] = min(lowerbound(i - 3, j - 9, k - 1) + 1, dp[i][j][k])
+                dp[i][j][k] = min(lowerbound(i - 3, j - 1, k - 9) + 1, dp[i][j][k])
+                dp[i][j][k] = min(lowerbound(i - 1, j - 9, k - 3) + 1, dp[i][j][k])
+                dp[i][j][k] = min(lowerbound(i - 1, j - 3, k - 9) + 1, dp[i][j][k])
+            }
+        }
+    }
 
-	println(dp[arr[0]][if (arr.size >= 2) arr[1] else 0][if (arr.size >= 3) arr[2] else 0])
+    println(dp[arr[0]][if (arr.size >= 2) arr[1] else 0][if (arr.size >= 3) arr[2] else 0])
 }

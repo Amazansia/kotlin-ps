@@ -38,9 +38,13 @@ fun main() = with(System.`in`.bufferedReader()) {
             dfs(next, visited, count + 1)
             visited[next] = false
         }
-
     }
 
+    // 5 ^ 4 ^ 3 ^ 2 ^ 1
+    // 1 -> 2000 ^ 5?
+    // 32000000000000000
+
+    // (5 ^ 5) * N = 20000 * 2000 = 4 000 000
     for (i in 0 until N) {
         flag = false
         dfs(i, BooleanArray(N), 1)
