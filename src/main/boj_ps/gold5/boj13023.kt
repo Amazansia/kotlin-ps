@@ -8,6 +8,7 @@ DFS로 각 노드마다 depth 5 이상인 경우가 존재하는지 돌려보기
 관계 수 최대 2000
 2배로 저장하니까 최대 4000
 걍 돌려도 될듯
+???????????????????????????
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
@@ -39,10 +40,6 @@ fun main() = with(System.`in`.bufferedReader()) {
             visited[next] = false
         }
     }
-
-    // 5 ^ 4 ^ 3 ^ 2 ^ 1
-    // 1 -> 2000 ^ 5?
-    // 32000000000000000
 
     // (5 ^ 5) * N = 20000 * 2000 = 4 000 000
     for (i in 0 until N) {
