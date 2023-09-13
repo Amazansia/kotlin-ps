@@ -62,48 +62,45 @@ n으로 떨어지면 시초날듯
 
 행렬이었네요
 해산~
-
 * */
 
 fun main() = with(System.`in`.bufferedReader()) {
     var N = readln().toInt()
     val MOD = 1000000007
 
-    // 정전미신한진학형
-    var dp = LongArray(8)
+    // ㅋㅋ
+    var matrix = arrayOf(
+        intArrayOf(0, 1, 1, 0, 0, 0, 0, 0),
+        intArrayOf(1, 0, 1, 1, 0, 0, 0, 0),
+        intArrayOf(1, 1, 0, 1, 1, 0, 0, 0),
+        intArrayOf(0, 1, 1, 0, 1, 1, 0, 0),
+        intArrayOf(0, 0, 1, 1, 0, 1, 0, 1),
+        intArrayOf(0, 0, 0, 1, 1, 0, 1, 0),
+        intArrayOf(0, 0, 0, 0, 0, 1, 0, 1),
+        intArrayOf(0, 0, 0, 0, 1, 0, 1, 0)
+    )
 
-    // 1초일 때 dp배열 초기화
-    dp[1] = 1
-    dp[2] = 1
+    fun mul(A: Array<IntArray>, B: Array<IntArray>): Array<IntArray> {
+        var res = Array(8) { IntArray(8) }
+        for (i in 0 until 8) {
+            for (j in 0 until 8) {
+                for (k in 0 until 8) {
+                    res[i][j] = ((res[i][j].toLong() + A[i][k].toLong() * B[k][j].toLong()) % MOD).toInt()
+                }
+                res[i][j] %= MOD
+            }
+        }
 
-    for (i in 2..N) {
-        var dp0 = dp[0]
-        var dp1 = dp[1]
-        var dp2 = dp[2]
-        var dp3 = dp[3]
-        var dp4 = dp[4]
-        var dp5 = dp[5]
-        var dp6 = dp[6]
-        var dp7 = dp[7]
-
-        // 정보
-        dp[0] = (dp[0] + dp1 + dp2) % MOD
-        // 전산
-        dp[1] = (dp[1] + dp0 + dp2 + dp3) % MOD
-        // 미래
-        dp[2] = (dp[2] + dp0 + dp1 + dp3 + dp4) % MOD
-        // 신양
-        dp[3] = (dp[3] + dp1 + dp2 + dp4 + dp5) % MOD
-        // 한경
-        dp[4] = (dp[4] + dp2 + dp3 + dp5) % MOD
-        // 진리
-        dp[5] = (dp[5] + dp3 + dp4 + dp6) % MOD
-        // 학생
-        dp[6] = (dp[6] + dp5 + dp7) % MOD
-        // 형남
-        dp[7] = (dp[7] + dp4 + dp6) % MOD
+        return res
     }
 
-    println(dp[0])
+    fun cal(A: Array<IntArray>, n: Int): Array<IntArray> {
+        if (n == 1) return A
+        var cal2 = cal(A, n / 2)
+        if (n % 2 == 0) return mul(cal2, cal2)
+        return mul(mul(cal2, cal2), A)
+    }
 
+    var answer = cal(matrix, N)
+    println(answer[0][0])
 }
