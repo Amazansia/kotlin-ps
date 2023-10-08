@@ -61,7 +61,7 @@ fun main() = with(System.`in`.bufferedReader()) {
     fun dfs(mat: Array<CharArray>, cnt: Int) {
         if (cnt > 3) return
 
-        // 3개 세웠을 때 가장
+        // 3개 세웠을 때
         if (cnt == 3 && !isCaught(mat)) {
             answer = "YES"
             return
