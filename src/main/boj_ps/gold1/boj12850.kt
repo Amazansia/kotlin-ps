@@ -87,7 +87,7 @@ fun main() = with(System.`in`.bufferedReader()) {
                 for (k in 0 until 8) {
                     res[i][j] = ((res[i][j].toLong() + A[i][k].toLong() * B[k][j].toLong()) % MOD).toInt()
                 }
-                res[i][j] %= MOD
+//                res[i][j] %= MOD
             }
         }
 
