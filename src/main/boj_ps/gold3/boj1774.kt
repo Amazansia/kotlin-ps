@@ -3,6 +3,7 @@ package gold3
 import kotlin.math.abs
 import kotlin.math.sqrt
 
+
 /*
 정신적인 통로의 길이들의 합...
 이미 존재하는 통로는 비용이 0
@@ -70,7 +71,6 @@ fun main() = with(System.`in`.bufferedReader()) {
             dist[i][j] = getDistance(location[i], location[j])
         }
     }
-
     // 이미 연결되어 있는 신들은 union으로 모두 연결시켜준다
     for (i in 0 until M) {
         var (s, e) = readLine().split(" ").map { it.toInt() - 1 }
