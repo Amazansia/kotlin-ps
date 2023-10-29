@@ -32,17 +32,46 @@ A[](B+C)
 A(B+C)[]
 ABC+[]
 
-재귀합시다
 1. 괄호처리
 2. * & / 처리
 3. + & - 처리
+순회 완료된 것들은 숫자로 변환하기
 * */
 fun main() = with(System.`in`.bufferedReader()) {
     var str = readLine()
+    val stack = Stack<Char>()
 
-    print(recursive(str, 0))
+    var answer = StringBuilder()
+    str.forEach { ch ->
+        if (ch.isLetter()) {
+            answer.append(ch)
+        } else if (ch == '(') {
+            stack.push(ch)
+        } else if (ch == ')') {
+            while (stack.isNotEmpty() && stack.peek() != '(') {
+                answer.append(stack.pop())
+            }
+            if (stack.isNotEmpty() && stack.peek() == '(') {
+                stack.pop()
+            }
+        } else {
+            if (ch == '-' || ch == '+') {
+                while (stack.isNotEmpty() && stack.peek() != '(') {
+                    answer.append(stack.pop())
+                }
+            } else {
+                while (stack.isNotEmpty() && stack.peek() != '(' && stack.peek() != '-' && stack.peek() != '+') {
+                    answer.append(stack.pop())
+                }
+            }
+            stack.push(ch)
+        }
+
+    }
+    while (stack.isNotEmpty()) {
+        answer.append(stack.pop())
+    }
+    print(answer)
 }
 
-fun recursive(str: String, startIdx: Int): String {
-    if
-}
+
