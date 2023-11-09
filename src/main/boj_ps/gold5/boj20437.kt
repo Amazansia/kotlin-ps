@@ -20,57 +20,26 @@ fun main() = with(System.`in`.bufferedReader()) {
         var W = readLine()
         var K = readLine().toInt()
 
-        var left = 0
-        var right = 0
-        var countAlphabetArr = IntArray(26) { 0 }
-        countAlphabetArr[W[right] - 'a']++
-
+        var countAlphabetArr: IntArray
 
         var firstAnswer = 10001
-
-        while (right < W.length && left <= right) {
-            if (countAlphabetArr[W[right] - 'a'] > K) {
-                countAlphabetArr[W[left] - 'a']--
-                left++
-            } else {
-                if (countAlphabetArr[W[right] - 'a'] == K) {
-                    var l = left
-                    while (W[l] != W[right]) {
-                        l++
-                    }
-                    firstAnswer = min(firstAnswer, right - l + 1)
-                }
-                right++
-                if (right == W.length) break
-                countAlphabetArr[W[right] - 'a']++
-            }
-        }
-
-        left = 0
-        right = 0
-        countAlphabetArr = IntArray(26) { 0 }
-        countAlphabetArr[W[right] - 'a']++
-
         var secondAnswer = -1
-
-        while (right < W.length && left <= right) {
-//            println("$left, $right")
-
-            if (countAlphabetArr[W[right] - 'a'] > K) {
-                countAlphabetArr[W[left] - 'a']--
-                if (countAlphabetArr[W[right] - 'a'] == K && W[right] == W[left]) {
-                    secondAnswer = max(secondAnswer, right - left)
+        // 100 000 000
+        // 정확히 K개를 포함하는 가장 짧은 문자열이 존재할 때, 동일한 문자로 시작하는 가장 긴 문자열이 존재할 수 없다.
+        for (l in W.indices) {
+            countAlphabetArr = IntArray(26) { 0 }
+            countAlphabetArr[W[l] - 'a']++
+            for (r in l until W.length) {
+                if (l != r) {
+                    countAlphabetArr[W[r] - 'a']++
                 }
-                left++
-
-            } else {
-                right++
-                if (right == W.length) break
-                countAlphabetArr[W[right] - 'a']++
+                if (W[l] == W[r] && countAlphabetArr[W[l] - 'a'] == K) {
+                    firstAnswer = min(firstAnswer, r - l + 1)
+                    secondAnswer = max(secondAnswer, r - l + 1)
+                    break
+                }
             }
-
         }
-
 
         if (firstAnswer != 10001) {
             println("$firstAnswer $secondAnswer")
